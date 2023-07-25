@@ -1,0 +1,15 @@
+.header-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  width: 100vw;
+  margin-top: 20px;
+}
+
+.bottom-line {
+  width: 1000px;
+  margin-top: 20px;
+  border: 2px solid rgb(255, 255, 255);
+}
