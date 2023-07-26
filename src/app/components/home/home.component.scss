@@ -1,13 +1,57 @@
-.container {
+$content-width: 1020px;
+
+@mixin font-style($weight, $size, $spacing) {
+  font-family: "Open Sans", sans-serif;
+  font-weight: $weight;
+  font-size: $size;
+  letter-spacing: $spacing;
+}
+
+@mixin flex-display($justify, $align, $direction) {
   display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  flex-direction: $direction;
+}
+
+.container {
+  @include flex-display(center, center, column);
   width: 100vw;
-  justify-content: center;
 }
 
 .marios-info-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  width: 1020px;
+  @include flex-display(space-between, center, row);
+  width: $content-width;
+  margin-top: 50px;
+}
+
+.add-marios-container {
+  @include flex-display(flex-end, center, row);
+  width: $content-width;
+  margin-top: 30px;
+}
+
+.add-marios-button {
+  @include font-style(800, 17px, 1px);
+  @include flex-display(space-between, center, row);
+  width: 190px;
+  height: 45px;
+  padding-left: 10px;
+  background-color: #ffdf24;
+  border: solid 3px #ffffff;
+  border-radius: 5px;
+  cursor: pointer;
+
+  transition: transform 0.1s ease-in-out;
+  filter: blur(0);
+
+  &:hover {
+    box-shadow: 0px 15px 25px -5px rgba(#1e509f, 90%);
+    transform: perspective(1px) scale(1.0588);
+  }
+
+  &:active {
+    box-shadow: 0px 4px 8px rgba(#1e509f, 50%);
+    transform: perspective(1px) scale(0.9412);
+  }
 }
