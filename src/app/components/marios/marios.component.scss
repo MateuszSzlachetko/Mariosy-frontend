@@ -1,0 +1,45 @@
+@mixin font-style($weight, $size, $spacing) {
+  font-family: "Open Sans", sans-serif;
+  font-weight: $weight;
+  font-size: $size;
+  letter-spacing: $spacing;
+}
+
+.marios-container {
+  display: flex;
+  flex-direction: column;
+  width: 320px;
+  height: 160px;
+  background-color: #ffffff;
+  padding-left: 6px;
+  border-radius: 5px;
+}
+
+.inner-column {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.inner-column > img {
+  margin-right: 8px;
+}
+
+.marios-container > div > p {
+  @include font-style(700, 16px, 0px);
+  margin: 0;
+}
+
+.author {
+  color: #ea808e;
+}
+
+.comment {
+  color: #a1a1a1;
+}
+
+.see-more {
+  color: #000000;
+}
