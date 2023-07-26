@@ -1,4 +1,4 @@
-$content-width: 1020px;
+@import "src/styles.scss";
 
 @mixin font-style($weight, $size, $spacing) {
   font-family: "Open Sans", sans-serif;
@@ -42,7 +42,7 @@ $content-width: 1020px;
   border-radius: 5px;
   cursor: pointer;
 
-  transition: transform 0.1s ease-in-out;
+  transition: transform 0.1s ease-in-out, box-shadow 0.4s ease-out;
   filter: blur(0);
 
   &:hover {
@@ -54,4 +54,16 @@ $content-width: 1020px;
     box-shadow: 0px 4px 8px rgba(#1e509f, 50%);
     transform: perspective(1px) scale(0.9412);
   }
+}
+
+.message-container {
+  @include flex-display(flex-start, center, row);
+  @include font-style(700, 25px, 4px);
+  width: $content-width;
+  margin-top: 10px;
+  color: #ffffff;
+}
+
+.message-container > p {
+  margin: 0;
 }
