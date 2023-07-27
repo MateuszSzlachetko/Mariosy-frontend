@@ -1,19 +1,5 @@
 @import "src/styles.scss";
 
-@mixin font-style($weight, $size, $spacing) {
-  font-family: "Open Sans", sans-serif;
-  font-weight: $weight;
-  font-size: $size;
-  letter-spacing: $spacing;
-}
-
-@mixin flex-display($justify, $align, $direction) {
-  display: flex;
-  justify-content: $justify;
-  align-items: $align;
-  flex-direction: $direction;
-}
-
 .container {
   @include flex-display(center, center, column);
   width: 100vw;

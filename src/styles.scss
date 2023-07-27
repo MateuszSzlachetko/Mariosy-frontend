@@ -3,6 +3,20 @@
 
 $content-width: 1020px;
 
+@mixin font-style($weight, $size, $spacing) {
+  font-family: "Open Sans", sans-serif;
+  font-weight: $weight;
+  font-size: $size;
+  letter-spacing: $spacing;
+}
+
+@mixin flex-display($justify, $align, $direction) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  flex-direction: $direction;
+}
+
 html {
   margin: 0;
   padding: 0;
@@ -11,4 +25,9 @@ html {
 body {
   margin: 0;
   padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
