@@ -1,0 +1,15 @@
+<div class="form-container">
+  <form (ngSubmit)="onSubmit()" #f="ngForm">
+    <div>
+      <label for="username">Username</label>
+      <hr />
+      <input type="text" id="username" ngModel name="username" />
+    </div>
+    <div>
+      <label for="email">Email</label>
+      <hr />
+      <input type="text" id="email" ngModel name="email" />
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+</div>
