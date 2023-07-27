@@ -1,10 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { UserService } from 'src/app/core/services/user.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
+  userId: string | null = '';
+  received: string = 'RECEIVED MARIOS:';
+  sent: string = 'SENT MARIOS:';
 
+  constructor(private userService: UserService) {}
+
+  ngOnInit(): void {
+    this.userId = this.userService.getCurrentUserId();
+  }
 }

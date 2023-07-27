@@ -10,6 +10,10 @@ import { HomeComponent } from './components/home/home.component';
 import { MariosInfoComponent } from './components/home/marios-info/marios-info.component';
 import { MariosComponent } from './components/marios/marios.component';
 import { MariosGridComponent } from './shared/marios-grid/marios-grid.component';
+import { ReceivedComponent } from './components/user/received/received.component';
+import { LoginComponent } from './shared/login/login.component';
+import { FormsModule } from '@angular/forms';
+import { SentComponent } from './components/user/sent/sent.component';
 
 @NgModule({
   declarations: [
@@ -20,8 +24,11 @@ import { MariosGridComponent } from './shared/marios-grid/marios-grid.component'
     MariosInfoComponent,
     MariosComponent,
     MariosGridComponent,
+    ReceivedComponent,
+    LoginComponent,
+    SentComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

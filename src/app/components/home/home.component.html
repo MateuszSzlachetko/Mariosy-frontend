@@ -1,16 +1,23 @@
 <div class="container">
   <div class="marios-info-container">
-    <app-marios-info></app-marios-info>
-    <app-marios-info></app-marios-info>
+    <a [routerLink]="['/user', userId, 'received']">
+      <app-marios-info [userId]="userId" [message]="received"></app-marios-info>
+    </a>
+    <a [routerLink]="['/user', userId, 'sent']">
+      <app-marios-info [userId]="userId" [message]="sent"></app-marios-info>
+    </a>
   </div>
+
   <div class="add-marios-container">
     <button class="add-marios-button" type="button">
       ADD MARIOS
       <img src="assets/right-arrow.svg" alt="" />
     </button>
   </div>
+
   <div class="message-container">
     <p>LAST MARIOS:</p>
   </div>
+
   <app-marios-grid></app-marios-grid>
 </div>
