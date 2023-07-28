@@ -18,7 +18,7 @@
 }
 
 .add-marios-button {
-  @include font-style(800, 17px, 1px);
+  @include font-style(700, 17px, 1px);
   @include flex-display(space-between, center, row);
   width: 190px;
   height: 45px;
