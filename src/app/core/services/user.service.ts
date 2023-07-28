@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../interfaces/user.interface';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { CookieService } from 'ngx-cookie-service';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +13,11 @@ export class UserService {
   private usersData: User[] = [];
   private users$ = new BehaviorSubject<User[]>([]);
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private cookieService: CookieService,
+    private router: Router
+  ) {}
 
   get users() {
     if (this.usersData.length === 0) {
@@ -33,12 +39,16 @@ export class UserService {
   }
 
   saveCurrentUserCookie(user: User) {
-    console.log(user.externalId);
-    localStorage.setItem('user', user.externalId);
-    console.log(localStorage.getItem('user'));
+    const expiration: Date = new Date();
+    expiration.setDate(expiration.getDate() + 1);
+    this.cookieService.set('loggedUserId', user.externalId, expiration);
   }
 
-  getCurrentUserId(): string | null {
-    return localStorage.getItem('user');
+  getCurrentUserId(): string {
+    const userId = this.cookieService.get('loggedUserId');
+
+    //if (userId === '') this.router.navigate(['/login']);
+
+    return this.cookieService.get('loggedUserId');
   }
 }
