@@ -9,12 +9,13 @@ import { UserService } from 'src/app/core/services/user.service';
 })
 export class MariosComponent implements OnInit {
   @Input() marios!: Marios;
+  author!: string;
 
   constructor(private userService: UserService) {}
 
   ngOnInit(): void {
     this.userService.getUserById(this.marios.author).subscribe((data) => {
-      this.marios.author = data.username;
+      this.author = data.username;
     });
   }
 }
