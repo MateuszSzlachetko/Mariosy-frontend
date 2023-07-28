@@ -4,6 +4,7 @@ import { User } from '../interfaces/user.interface';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
+import { Marios } from '../interfaces/marios.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -30,6 +31,10 @@ export class UserService {
     return this.http.get<User>(this.usersUrl + `/?username=${username}`);
   }
 
+  getUserById(id: string) {
+    return this.http.get<User>(this.usersUrl + '/' + id);
+  }
+
   fetchUsers() {
     return this.http.get<User[]>(this.usersUrl).subscribe((data) => {
       this.usersData = data;
@@ -50,5 +55,12 @@ export class UserService {
     //if (userId === '') this.router.navigate(['/login']);
 
     return this.cookieService.get('loggedUserId');
+  }
+
+  getUserReceivedMarios() {
+    const currentUserId = this.getCurrentUserId();
+    const url = this.usersUrl + `/${currentUserId}/marios/received`;
+
+    return this.http.get<Marios[]>(url);
   }
 }
