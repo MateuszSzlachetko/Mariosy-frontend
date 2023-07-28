@@ -1,5 +1,5 @@
 <div class="container">
-  <app-marios></app-marios>
-  <app-marios></app-marios>
-  <app-marios></app-marios>
+  <ng-container *ngFor="let marios of mariosArray">
+    <app-marios [marios]="marios"></app-marios>
+  </ng-container>
 </div>
