@@ -1,5 +1,7 @@
+import { Subject, takeUntil } from 'rxjs';
+import { SessionService } from 'src/app/core/services/session.service';
 import { UserService } from 'src/app/core/services/user.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Marios } from 'src/app/core/interfaces/marios.interface';
 
 @Component({
@@ -7,13 +9,24 @@ import { Marios } from 'src/app/core/interfaces/marios.interface';
   templateUrl: './received.component.html',
   styleUrls: ['./received.component.scss'],
 })
-export class ReceivedComponent implements OnInit {
+export class ReceivedComponent implements OnInit, OnDestroy {
   receivedMarios: Marios[] = [];
-  constructor(private userService: UserService) {}
+  private destroy$: Subject<void> = new Subject();
+
+  constructor(private sessionService: SessionService) {}
 
   ngOnInit(): void {
-    this.userService.getUserReceivedMarios().subscribe((data) => {
-      this.receivedMarios = data;
-    });
+    this.sessionService
+      .getCurrentUserReceivedMarios()
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((data: Marios[]) => {
+        this.receivedMarios = data;
+        console.log(data);
+      });
+  }
+
+  ngOnDestroy() {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 }

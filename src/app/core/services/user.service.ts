@@ -32,6 +32,7 @@ export class UserService {
   }
 
   getUserById(id: string) {
+    console.log(id);
     return this.http.get<User>(this.usersUrl + '/' + id);
   }
 
@@ -43,24 +44,8 @@ export class UserService {
     });
   }
 
-  saveCurrentUserCookie(user: User) {
-    const expiration: Date = new Date();
-    expiration.setDate(expiration.getDate() + 1);
-    this.cookieService.set('loggedUserId', user.externalId, expiration);
-  }
-
-  getCurrentUserId(): string {
-    const userId = this.cookieService.get('loggedUserId');
-
-    //if (userId === '') this.router.navigate(['/login']);
-
-    return this.cookieService.get('loggedUserId');
-  }
-
-  getUserReceivedMarios() {
-    const currentUserId = this.getCurrentUserId();
-    const url = this.usersUrl + `/${currentUserId}/marios/received`;
-
+  getUserReceivedMarios(id: string) {
+    const url = this.usersUrl + `/${id}/marios/received`;
     return this.http.get<Marios[]>(url);
   }
 }
