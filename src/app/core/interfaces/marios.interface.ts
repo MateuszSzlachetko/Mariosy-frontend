@@ -4,6 +4,7 @@ export interface Marios {
   comment: string;
   author: string;
   receivers: string[];
+  creationDate: Date;
 }
 
 export interface Mariosy {

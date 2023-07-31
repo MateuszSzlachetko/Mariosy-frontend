@@ -1,4 +1,4 @@
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, map, zip } from 'rxjs';
 import { User } from '../interfaces/user.interface';
 import { CookieService } from 'ngx-cookie-service';
 import { Marios, Mariosy } from './../interfaces/marios.interface';
@@ -23,6 +23,20 @@ export class SessionService {
     private cookieService: CookieService
   ) {
     this.currentUserId = this.cookieService.get('loggedUserId');
+  }
+
+  getCurrentUserLastMariosy() {
+    return zip(
+      this.getCurrentUserGivenMariosy(),
+      this.getCurrentUserReceivedMariosy()
+    ).pipe(
+      map(([s1, s2]) => [...s1, ...s2]),
+      map((res) =>
+        res.sort((a, b) => {
+          return -new Date(a.creationDate) + +new Date(b.creationDate);
+        })
+      )
+    );
   }
 
   getCurrentUserReceivedMariosy() {

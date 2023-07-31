@@ -1,6 +1,7 @@
 import { SessionService } from './../../core/services/session.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subject, takeUntil } from 'rxjs';
+import { Marios } from 'src/app/core/interfaces/marios.interface';
 import { UserService } from 'src/app/core/services/user.service';
 
 @Component({
@@ -14,6 +15,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   sent: string = 'SENT MARIOS:';
   destroy$: Subject<void> = new Subject();
 
+  lastMarios: Marios[] = [];
   receivedCount: number = 0;
   givenCount: number = 0;
 
@@ -24,13 +26,13 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.userId = this.sessionService.getCurrentUserId();
+    console.log('home');
 
     this.sessionService
       .getCurrentUserReceivedMariosyCount()
       .pipe(takeUntil(this.destroy$))
       .subscribe((data: number) => {
         this.receivedCount = data;
-        console.log(data);
       });
 
     this.sessionService
@@ -38,7 +40,13 @@ export class HomeComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(this.destroy$))
       .subscribe((data: number) => {
         this.givenCount = data;
-        console.log(data);
+      });
+
+    this.sessionService
+      .getCurrentUserLastMariosy()
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((data: Marios[]) => {
+        this.lastMarios = data;
       });
   }
 
