@@ -1,0 +1,46 @@
+@import "src/styles.scss";
+
+.container {
+  @include flex-display(center, center, column);
+  width: 100vw;
+}
+
+.message-container {
+  @include flex-display(flex-start, center, row);
+  @include font-style(700, 25px, 4px);
+  width: $content-width;
+  margin-top: 40px;
+  color: #ffffff;
+}
+
+.back-button-container {
+  @include flex-display(flex-start, center, row);
+  width: $content-width;
+  margin-top: 20px;
+}
+
+.back-button {
+  @include font-style(700, 17px, 1px);
+  @include flex-display(space-between, center, row);
+  width: 120px;
+  height: 45px;
+  padding-left: 10px;
+  padding-right: 15px;
+  background-color: #ffdf24;
+  border: solid 3px #ffffff;
+  border-radius: 5px;
+  cursor: pointer;
+
+  transition: transform 0.1s ease-in-out, box-shadow 0.4s ease-out;
+  filter: blur(0);
+
+  &:hover {
+    box-shadow: 0px 15px 25px -5px rgba(#9a272d, 90%);
+    transform: perspective(1px) scale(1.0588);
+  }
+
+  &:active {
+    box-shadow: 0px 4px 8px rgba(#9a272d, 50%);
+    transform: perspective(1px) scale(0.9412);
+  }
+}

@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   destroy$: Subject<void> = new Subject();
 
   receivedCount: number = 0;
-  sentCount: number = 0;
+  givenCount: number = 0;
 
   constructor(
     private userService: UserService,
@@ -24,11 +24,20 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.userId = this.sessionService.getCurrentUserId();
+
     this.sessionService
       .getCurrentUserReceivedMariosyCount()
       .pipe(takeUntil(this.destroy$))
       .subscribe((data: number) => {
         this.receivedCount = data;
+        console.log(data);
+      });
+
+    this.sessionService
+      .getCurrentUserGivenMariosyCount()
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((data: number) => {
+        this.givenCount = data;
         console.log(data);
       });
   }

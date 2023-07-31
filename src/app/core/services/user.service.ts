@@ -48,4 +48,9 @@ export class UserService {
     const url = this.usersUrl + `/${id}/marios/received`;
     return this.http.get<Mariosy>(url);
   }
+
+  getUserGivenMariosy(id: string) {
+    const url = this.usersUrl + `/${id}/marios/given`;
+    return this.http.get<Mariosy>(url);
+  }
 }

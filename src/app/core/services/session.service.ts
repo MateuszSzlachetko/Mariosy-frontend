@@ -14,6 +14,10 @@ export class SessionService {
   receivedMariosArray$ = new BehaviorSubject<Marios[]>([]);
   receivedMariosCount$ = new BehaviorSubject<number>(0);
 
+  givenMariosy: Mariosy = { mariosy: [], count: 0 };
+  givenMariosArray$ = new BehaviorSubject<Marios[]>([]);
+  givenMariosCount$ = new BehaviorSubject<number>(0);
+
   constructor(
     private userService: UserService,
     private cookieService: CookieService
@@ -43,6 +47,29 @@ export class SessionService {
         this.receivedMariosy.count = data.count;
         this.receivedMariosArray$.next(data.mariosy);
         this.receivedMariosCount$.next(data.count);
+      });
+  }
+
+  getCurrentUserGivenMariosy() {
+    if (this.givenMariosy.mariosy.length === 0) this.fetchUserSentMariosy();
+
+    return this.givenMariosArray$.asObservable();
+  }
+
+  getCurrentUserGivenMariosyCount() {
+    if (this.givenMariosy.mariosy.length === 0) this.fetchUserSentMariosy();
+
+    return this.givenMariosCount$.asObservable();
+  }
+
+  fetchUserSentMariosy() {
+    return this.userService
+      .getUserGivenMariosy(this.currentUserId)
+      .subscribe((data: Mariosy) => {
+        this.givenMariosy.mariosy = data.mariosy;
+        this.givenMariosy.count = data.count;
+        this.givenMariosArray$.next(data.mariosy);
+        this.givenMariosCount$.next(data.count);
       });
   }
 
