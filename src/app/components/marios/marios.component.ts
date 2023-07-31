@@ -10,6 +10,7 @@ import { UserService } from 'src/app/core/services/user.service';
 export class MariosComponent implements OnInit {
   @Input() marios!: Marios;
   author!: string;
+  maxCommentLength: number = 10;
 
   constructor(private userService: UserService) {}
 
