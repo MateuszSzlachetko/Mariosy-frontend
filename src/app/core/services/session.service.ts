@@ -1,7 +1,7 @@
 import { BehaviorSubject } from 'rxjs';
 import { User } from '../interfaces/user.interface';
 import { CookieService } from 'ngx-cookie-service';
-import { Marios } from './../interfaces/marios.interface';
+import { Marios, Mariosy } from './../interfaces/marios.interface';
 import { UserService } from './user.service';
 import { Injectable } from '@angular/core';
 
@@ -10,14 +10,40 @@ import { Injectable } from '@angular/core';
 })
 export class SessionService {
   currentUserId: string;
-  receivedMarios: Marios[] = [];
-  receivedMarios$ = new BehaviorSubject<Marios[]>([]);
+  receivedMariosy: Mariosy = { mariosy: [], count: 0 };
+  receivedMariosArray$ = new BehaviorSubject<Marios[]>([]);
+  receivedMariosCount$ = new BehaviorSubject<number>(0);
 
   constructor(
     private userService: UserService,
     private cookieService: CookieService
   ) {
     this.currentUserId = this.cookieService.get('loggedUserId');
+  }
+
+  getCurrentUserReceivedMariosy() {
+    if (this.receivedMariosy.mariosy.length === 0)
+      this.fetchUserReceivedMariosy();
+
+    return this.receivedMariosArray$.asObservable();
+  }
+
+  getCurrentUserReceivedMariosyCount() {
+    if (this.receivedMariosy.mariosy.length === 0)
+      this.fetchUserReceivedMariosy();
+
+    return this.receivedMariosCount$.asObservable();
+  }
+
+  fetchUserReceivedMariosy() {
+    return this.userService
+      .getUserReceivedMariosy(this.currentUserId)
+      .subscribe((data: Mariosy) => {
+        this.receivedMariosy.mariosy = data.mariosy;
+        this.receivedMariosy.count = data.count;
+        this.receivedMariosArray$.next(data.mariosy);
+        this.receivedMariosCount$.next(data.count);
+      });
   }
 
   saveCurrentUserCookie(user: User) {
@@ -31,16 +57,5 @@ export class SessionService {
     const userId = this.cookieService.get('loggedUserId');
     //if (userId === '') this.router.navigate(['/login']);
     return this.cookieService.get('loggedUserId');
-  }
-
-  getCurrentUserReceivedMarios() {
-    if (this.receivedMarios.length === 0)
-      this.userService
-        .getUserReceivedMarios(this.currentUserId)
-        .subscribe((data: Marios[]) => {
-          this.receivedMarios = data;
-          this.receivedMarios$.next(data);
-        });
-    return this.receivedMarios$.asObservable();
   }
 }

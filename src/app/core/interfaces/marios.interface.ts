@@ -5,3 +5,8 @@ export interface Marios {
   author: string;
   receivers: string[];
 }
+
+export interface Mariosy {
+  mariosy: Marios[];
+  count: number;
+}

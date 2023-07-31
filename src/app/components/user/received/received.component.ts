@@ -17,7 +17,7 @@ export class ReceivedComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.sessionService
-      .getCurrentUserReceivedMarios()
+      .getCurrentUserReceivedMariosy()
       .pipe(takeUntil(this.destroy$))
       .subscribe((data: Marios[]) => {
         this.receivedMarios = data;

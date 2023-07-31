@@ -4,7 +4,7 @@ import { User } from '../interfaces/user.interface';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
-import { Marios } from '../interfaces/marios.interface';
+import { Marios, Mariosy } from '../interfaces/marios.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -44,8 +44,8 @@ export class UserService {
     });
   }
 
-  getUserReceivedMarios(id: string) {
+  getUserReceivedMariosy(id: string) {
     const url = this.usersUrl + `/${id}/marios/received`;
-    return this.http.get<Marios[]>(url);
+    return this.http.get<Mariosy>(url);
   }
 }
