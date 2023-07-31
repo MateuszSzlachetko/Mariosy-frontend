@@ -8,4 +8,5 @@ import { Component, Input } from '@angular/core';
 export class MariosInfoComponent {
   @Input() userId: string | null = '';
   @Input() message: string = '';
+  @Input() count: number = 0;
 }
