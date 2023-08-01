@@ -1,0 +1,103 @@
+@import "src/styles.scss";
+
+::ng-deep.mat-mdc-dialog-content {
+  padding: 0px !important;
+}
+
+.marios-container {
+  display: flex;
+  flex-direction: column;
+  width: 640px;
+  height: 200px;
+  background-color: #ffffff;
+  padding: 20px 25px;
+  border-radius: 5px;
+  position: relative;
+
+  .close {
+    position: absolute;
+    right: 6px;
+    top: 6px;
+    width: 16px;
+    height: 16px;
+    opacity: 0.7;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &:before,
+    &:after {
+      position: absolute;
+      left: 7px;
+      content: " ";
+      height: 17px;
+      width: 2px;
+      background-color: #333;
+    }
+    &:before {
+      transform: rotate(45deg);
+    }
+    &:after {
+      transform: rotate(-45deg);
+    }
+    &:active {
+      transform: scale(0.8);
+    }
+  }
+}
+
+.top-row {
+  @include flex-display(space-between, center, row);
+  height: 40px;
+}
+
+.author-container {
+  @include flex-display(center, center, row);
+
+  & > img {
+    margin-right: 10px;
+  }
+}
+
+.author {
+  @include font-style(700, 20px, 0px);
+  margin: 0;
+  color: #ea808e;
+}
+
+.reaction-container {
+  @include flex-display(center, center, row);
+
+  & > img {
+    margin-right: 10px;
+  }
+}
+
+.reaction {
+  @include font-style(700, 22px, 0px);
+  margin: 0;
+  color: #000000;
+}
+
+.title-container {
+  @include font-style(700, 25px, 0px);
+  @include flex-display(flex-start, center, row);
+  color: black;
+  margin-top: 10px;
+}
+
+.comment-container {
+  @include flex-display(flex-start, center, row);
+  margin-top: 30px;
+  width: 640px;
+}
+
+.comment-container > p {
+  @include font-style(700, 18px, 0px);
+  margin: 0;
+  color: #a1a1a1;
+  word-break: break-all;
+  white-space: normal;
+}

@@ -1,3 +1,4 @@
+import { MatDialogModule } from '@angular/material/dialog';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
@@ -14,6 +15,8 @@ import { ReceivedComponent } from './components/user/received/received.component
 import { LoginComponent } from './shared/login/login.component';
 import { FormsModule } from '@angular/forms';
 import { SentComponent } from './components/user/sent/sent.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,15 @@ import { SentComponent } from './components/user/sent/sent.component';
     LoginComponent,
     SentComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatDialogModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

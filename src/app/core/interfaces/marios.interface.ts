@@ -3,6 +3,8 @@ export interface Marios {
   characterName: string;
   comment: string;
   author: string;
+  authorUsername: string;
+  title: string;
   receivers: string[];
   creationDate: Date;
 }
