@@ -17,6 +17,7 @@ import { FormsModule } from '@angular/forms';
 import { SentComponent } from './components/user/sent/sent.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
+import { AddMariosComponent } from './components/home/add-marios/add-marios.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { MatButtonModule } from '@angular/material/button';
     ReceivedComponent,
     LoginComponent,
     SentComponent,
+    AddMariosComponent,
   ],
   imports: [
     BrowserModule,

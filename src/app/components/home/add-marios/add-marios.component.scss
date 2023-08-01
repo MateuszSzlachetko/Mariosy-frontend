@@ -5,12 +5,14 @@
   width: 100vw;
 }
 
-.message-container {
-  @include flex-display(flex-start, center, row);
+.form-container {
+  @include flex-display(center, center, row);
   @include font-style(700, 25px, 4px);
   width: $content-width;
-  margin-top: 40px;
-  color: #ffffff;
+  height: 700px;
+  background-color: white;
+  margin-top: 80px;
+  border-radius: 5px;
 }
 
 .back-button-container {
