@@ -8,5 +8,51 @@
     </a>
   </div>
 
-  <div class="form-container"></div>
+  <div class="form-container">
+    <form (ngSubmit)="onSubmit()" #f="ngForm">
+      <ng-select
+        [(ngModel)]="selected"
+        name="userSelect"
+        [multiple]="true"
+        class="user-select"
+        placeholder="Who you want to recognize?"
+      >
+        <ng-option *ngFor="let user of users" [value]="user.externalId">
+          {{ user.username }}
+        </ng-option>
+      </ng-select>
+
+      <div class="category-container">
+        <div><label>Select category:</label></div>
+
+        <mat-chip-listbox class="chips-container">
+          <mat-basic-chip-option *ngFor="let chip of chips" class="custom-chip">
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                align-items: space-between;
+              "
+            >
+              <img [src]="chip.iconSrc" alt="" style="margin-right: 10px" />
+              {{ chip.name }}
+            </div>
+          </mat-basic-chip-option>
+        </mat-chip-listbox>
+      </div>
+    </form>
+  </div>
 </div>
+
+<!-- <div>
+        <label for="username">Username</label>
+        <hr />
+        <input type="text" id="username" ngModel name="username" />
+      </div>
+      <div>
+        <label for="email">Email</label>
+        <hr />
+        <input type="text" id="email" ngModel name="email" />
+      </div>
+      <button type="submit">Submit</button>
+    </form> -->

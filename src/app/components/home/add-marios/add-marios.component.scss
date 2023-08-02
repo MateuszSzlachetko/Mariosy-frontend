@@ -6,7 +6,7 @@
 }
 
 .form-container {
-  @include flex-display(center, center, row);
+  @include flex-display(center, flex-start, row);
   @include font-style(700, 25px, 4px);
   width: $content-width;
   height: 700px;
@@ -19,4 +19,70 @@
   @include flex-display(flex-start, center, row);
   width: $content-width;
   margin-top: 20px;
+}
+
+.ng-select.user-select {
+  width: $content-width;
+}
+
+.ng-select.user-select ::ng-deep .ng-select-container {
+  @include flex-display(center, center, row);
+  @include font-style(600, 25px, 1px);
+  border: none;
+  border-radius: 0px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom: 4px solid #fccf00;
+  min-height: 60px;
+  padding: 0px !important;
+}
+
+.ng-select.user-select ::ng-deep .ng-value-container {
+  @include flex-display(flex-start, center, row);
+  padding: 5px !important;
+}
+
+.ng-select.user-select ::ng-deep .ng-placeholder {
+  text-align: center;
+  color: #8d8080;
+  background-image: url("/assets/icons/person-icon-yellow.svg");
+  background-repeat: no-repeat;
+  background-position: left 5px bottom 5px;
+  text-indent: 50px;
+  padding: 0px !important;
+  margin-top: 10px;
+}
+
+.category-container {
+  @include flex-display(center, flex-start, column);
+  @include font-style(700, 24px, 1px);
+  padding-left: 15px;
+  width: $content-width -20px;
+  margin-top: 20px;
+}
+
+.chips-container {
+  @include flex-display(center, space-between, row);
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.mat-mdc-chip {
+  @include flex-display(center, center, row);
+}
+
+.custom-chip {
+  @include font-style(700, 16px, 1px);
+
+  height: 25px;
+  padding: 5px 20px;
+  margin-left: 5px;
+  margin-right: 5px;
+  border-radius: 5px;
+  border: 2px solid #bababa;
+  background-color: white;
+}
+
+.mat-mdc-chip-selected {
+  background-color: #e0e0e0;
 }

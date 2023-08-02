@@ -18,6 +18,8 @@ import { SentComponent } from './components/user/sent/sent.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { AddMariosComponent } from './components/home/add-marios/add-marios.component';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { MatChipsModule } from '@angular/material/chips';
 
 @NgModule({
   declarations: [
@@ -41,6 +43,8 @@ import { AddMariosComponent } from './components/home/add-marios/add-marios.comp
     BrowserAnimationsModule,
     MatButtonModule,
     MatDialogModule,
+    NgSelectModule,
+    MatChipsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
