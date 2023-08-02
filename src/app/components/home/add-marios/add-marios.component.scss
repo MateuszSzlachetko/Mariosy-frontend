@@ -64,7 +64,7 @@
 .chips-container {
   @include flex-display(center, space-between, row);
   margin-top: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .mat-mdc-chip {
@@ -85,4 +85,36 @@
 
 .mat-mdc-chip-selected {
   background-color: #e0e0e0;
+}
+
+.title-container {
+  border-top: 4px solid #fccf00;
+
+  border-bottom: 4px solid #fccf00;
+  @include flex-display(center, flex-start, column);
+  @include font-style(700, 24px, 1px);
+  padding-left: 15px;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  width: $content-width -20px;
+  margin-top: 20px;
+
+  & > div {
+    margin-bottom: 10px;
+  }
+}
+
+.title-input {
+  border: 2px solid #bababa;
+  border-radius: 5px;
+  @include font-style(700, 18px, 1px);
+  height: 40px;
+  width: $content-width - 70px;
+  padding-left: 10px;
+
+  &::placeholder {
+    @include font-style(700, 16px, 1px);
+    color: #bababa;
+    line-height: 90px;
+  }
 }
