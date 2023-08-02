@@ -12,12 +12,13 @@ import { ChipsReactions, Reaction } from './chips-reaction.model';
   styleUrls: ['./add-marios.component.scss'],
 })
 export class AddMariosComponent implements OnInit, OnDestroy {
-  @ViewChild('f') loginForm!: NgForm;
+  @ViewChild('f') mariosForm!: NgForm;
 
   selected: User[] = [];
   chips: Reaction[] = new ChipsReactions().chips;
   users: User[] = [];
   private destroy$: Subject<void> = new Subject();
+  commentText: string = '';
 
   constructor(
     private userService: UserService,
@@ -34,7 +35,7 @@ export class AddMariosComponent implements OnInit, OnDestroy {
   }
 
   onSubmit() {
-    const username = this.loginForm.value.username;
+    const username = this.mariosForm.value.username;
 
     this.userService.getUserByUsername(username).subscribe((data) => {
       const user: User = data;

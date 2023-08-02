@@ -48,11 +48,30 @@
             type="text"
             id="title"
             ngModel
-            name="titles"
+            name="title"
             placeholder="Enter marios title"
             class="title-input"
           />
         </div>
+      </div>
+
+      <div class="comment-container">
+        <div><label>Comment:</label></div>
+        <div>
+          <textarea
+            type="text"
+            id="comment"
+            [(ngModel)]="commentText"
+            name="comment"
+            class="comment-textarea"
+            maxlength="255"
+          ></textarea>
+        </div>
+        <div class="counter">{{ commentText.length }}/255</div>
+      </div>
+
+      <div class="send-button-container">
+        <button class="send-button" type="submit">SEND</button>
       </div>
     </form>
   </div>
