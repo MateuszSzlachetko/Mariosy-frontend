@@ -1,10 +1,15 @@
+import { MariosService } from './../../../core/services/marios.service';
+import { MariosPayload } from './../../../core/interfaces/marios.interface';
 import { UserService } from 'src/app/core/services/user.service';
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { User } from 'src/app/core/interfaces/user.interface';
 import { SessionService } from 'src/app/core/services/session.service';
 import { Subject, takeUntil } from 'rxjs';
-import { ChipsReactions, Reaction } from './chips-reaction.model';
+import {
+  ChipsReactions,
+  Reaction,
+} from '../../../core/models/chips-reaction.model';
 
 @Component({
   selector: 'app-add-marios',
@@ -14,7 +19,7 @@ import { ChipsReactions, Reaction } from './chips-reaction.model';
 export class AddMariosComponent implements OnInit, OnDestroy {
   @ViewChild('f') mariosForm!: NgForm;
 
-  selected: User[] = [];
+  selected: string[] = [];
   chips: Reaction[] = new ChipsReactions().chips;
   users: User[] = [];
   private destroy$: Subject<void> = new Subject();
@@ -22,7 +27,8 @@ export class AddMariosComponent implements OnInit, OnDestroy {
 
   constructor(
     private userService: UserService,
-    private sessionService: SessionService
+    private sessionService: SessionService,
+    private marioService: MariosService
   ) {}
 
   ngOnInit(): void {
@@ -35,13 +41,25 @@ export class AddMariosComponent implements OnInit, OnDestroy {
   }
 
   onSubmit() {
-    const username = this.mariosForm.value.username;
-
-    this.userService.getUserByUsername(username).subscribe((data) => {
-      const user: User = data;
-      console.log(data);
-      this.sessionService.saveCurrentUserCookie(user);
+    const author = this.sessionService.getCurrentUserId();
+    let receivers: string[] = [];
+    this.selected.forEach((user) => {
+      console.log(user);
+      receivers.push(user);
     });
+    const title = this.mariosForm.value.title;
+    const comment = this.commentText;
+    const characterName = this.mariosForm.value.chips;
+
+    const mariosPayload: MariosPayload = {
+      authorId: author,
+      receiversIds: receivers,
+      title: title,
+      comment: comment,
+      characterName: characterName,
+    };
+
+    this.marioService.postMarios(mariosPayload);
   }
 
   getUsers() {

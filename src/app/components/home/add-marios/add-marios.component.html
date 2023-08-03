@@ -25,8 +25,12 @@
       <div class="category-container">
         <div><label>Select category:</label></div>
 
-        <mat-chip-listbox class="chips-container">
-          <mat-basic-chip-option *ngFor="let chip of chips" class="custom-chip">
+        <mat-chip-listbox class="chips-container" ngModel name="chips">
+          <mat-basic-chip-option
+            *ngFor="let chip of chips"
+            [selected]="chip.selected"
+            class="custom-chip"
+          >
             <div
               style="
                 display: flex;
