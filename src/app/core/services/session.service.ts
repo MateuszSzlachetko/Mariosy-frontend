@@ -103,6 +103,7 @@ export class SessionService {
   updateGivenMarios(marios: Marios) {
     this.givenMariosy.mariosy.push(marios);
     this.givenMariosy.count++;
+
     this.givenMariosArray$.next(this.givenMariosy.mariosy);
     this.givenMariosCount$.next(this.givenMariosy.count);
   }

@@ -2,7 +2,7 @@ import { MariosService } from './../../../core/services/marios.service';
 import { MariosPayload } from './../../../core/interfaces/marios.interface';
 import { UserService } from 'src/app/core/services/user.service';
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormControl, NgForm } from '@angular/forms';
 import { User } from 'src/app/core/interfaces/user.interface';
 import { SessionService } from 'src/app/core/services/session.service';
 import { Subject, takeUntil } from 'rxjs';
@@ -10,6 +10,7 @@ import {
   ChipsReactions,
   Reaction,
 } from '../../../core/models/chips-reaction.model';
+import { NgSelectComponent } from '@ng-select/ng-select';
 
 @Component({
   selector: 'app-add-marios',
@@ -18,6 +19,8 @@ import {
 })
 export class AddMariosComponent implements OnInit, OnDestroy {
   @ViewChild('f') mariosForm!: NgForm;
+  @ViewChild('userSelect') userSelectComponent!: NgSelectComponent;
+  userSelectControl!: FormControl;
 
   selected: string[] = [];
   chips: Reaction[] = new ChipsReactions().chips;
@@ -33,6 +36,12 @@ export class AddMariosComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.getUsers();
+
+    // bug fix of reloading site on form page
+    // without it, after adding marios there will
+    // be only one in givenMariosArray without
+    // refreshing on homepage
+    this.sessionService.getCurrentUserGivenMariosy();
   }
 
   ngOnDestroy(): void {
@@ -44,7 +53,6 @@ export class AddMariosComponent implements OnInit, OnDestroy {
     const author = this.sessionService.getCurrentUserId();
     let receivers: string[] = [];
     this.selected.forEach((user) => {
-      console.log(user);
       receivers.push(user);
     });
     const title = this.mariosForm.value.title;
@@ -60,12 +68,17 @@ export class AddMariosComponent implements OnInit, OnDestroy {
     };
 
     this.marioService.postMarios(mariosPayload);
+
+    this.mariosForm.reset({
+      selected: [],
+      comment: '',
+      title: '',
+    });
   }
 
   getUsers() {
     this.userService.users.pipe(takeUntil(this.destroy$)).subscribe((data) => {
       this.users = data;
-      console.log(data);
     });
   }
 }

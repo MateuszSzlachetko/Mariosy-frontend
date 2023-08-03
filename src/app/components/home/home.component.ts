@@ -26,7 +26,6 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.userId = this.sessionService.getCurrentUserId();
-    console.log('home');
 
     this.sessionService
       .getCurrentUserReceivedMariosyCount()

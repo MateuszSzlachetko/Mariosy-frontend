@@ -16,16 +16,31 @@
         [multiple]="true"
         class="user-select"
         placeholder="Who you want to recognize?"
+        required
+        #userSelect="ngModel"
       >
         <ng-option *ngFor="let user of users" [value]="user.externalId">
           {{ user.username }}
         </ng-option>
       </ng-select>
+      <p
+        *ngIf="!userSelect.valid && userSelect.touched"
+        class="error-message"
+        style="padding-left: 15px"
+      >
+        Please select some receivers
+      </p>
 
       <div class="category-container">
         <div><label>Select category:</label></div>
 
-        <mat-chip-listbox class="chips-container" ngModel name="chips">
+        <mat-chip-listbox
+          class="chips-container"
+          ngModel
+          name="chips"
+          required
+          #chipsListbox="ngModel"
+        >
           <mat-basic-chip-option
             *ngFor="let chip of chips"
             [selected]="chip.selected"
@@ -43,6 +58,12 @@
             </div>
           </mat-basic-chip-option>
         </mat-chip-listbox>
+        <p
+          *ngIf="!chipsListbox.valid && chipsListbox.touched"
+          class="error-message"
+        >
+          Please select a reaction
+        </p>
       </div>
 
       <div class="title-container">
@@ -55,8 +76,13 @@
             name="title"
             placeholder="Enter marios title"
             class="title-input"
+            required
+            #title="ngModel"
           />
         </div>
+        <p *ngIf="!title.valid && title.touched" class="error-message">
+          Please leave a title
+        </p>
       </div>
 
       <div class="comment-container">
@@ -69,27 +95,25 @@
             name="comment"
             class="comment-textarea"
             maxlength="255"
+            required
+            #comment="ngModel"
           ></textarea>
         </div>
         <div class="counter">{{ commentText.length }}/255</div>
       </div>
+      <p
+        *ngIf="!comment.valid && comment.touched"
+        class="error-message"
+        style="padding-left: 15px"
+      >
+        Please leave a comment
+      </p>
 
       <div class="send-button-container">
-        <button class="send-button" type="submit">SEND</button>
+        <button class="send-button" type="submit" [disabled]="!f.valid">
+          SEND
+        </button>
       </div>
     </form>
   </div>
 </div>
-
-<!-- <div>
-        <label for="username">Username</label>
-        <hr />
-        <input type="text" id="username" ngModel name="username" />
-      </div>
-      <div>
-        <label for="email">Email</label>
-        <hr />
-        <input type="text" id="email" ngModel name="email" />
-      </div>
-      <button type="submit">Submit</button>
-    </form> -->
