@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../interfaces/user.interface';
 import { BehaviorSubject } from 'rxjs';
-import { CookieService } from 'ngx-cookie-service';
-import { Router } from '@angular/router';
 import { Mariosy } from '../interfaces/marios.interface';
 
 @Injectable({

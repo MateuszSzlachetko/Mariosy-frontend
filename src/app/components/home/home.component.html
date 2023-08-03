@@ -2,17 +2,12 @@
   <div class="marios-info-container">
     <a [routerLink]="['/user', userId, 'received']">
       <app-marios-info
-        [userId]="userId"
         [message]="received"
         [count]="receivedCount"
       ></app-marios-info>
     </a>
     <a [routerLink]="['/user', userId, 'sent']">
-      <app-marios-info
-        [userId]="userId"
-        [message]="sent"
-        [count]="givenCount"
-      ></app-marios-info>
+      <app-marios-info [message]="sent" [count]="givenCount"></app-marios-info>
     </a>
   </div>
 

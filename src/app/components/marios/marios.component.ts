@@ -2,7 +2,6 @@ import { MariosService } from './../../core/services/marios.service';
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Marios } from 'src/app/core/interfaces/marios.interface';
-import { UserService } from 'src/app/core/services/user.service';
 import { MariosModal } from './marios-modal/marios-modal.component';
 
 @Component({

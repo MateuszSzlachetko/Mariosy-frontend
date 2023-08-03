@@ -6,7 +6,6 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./marios-info.component.scss'],
 })
 export class MariosInfoComponent {
-  @Input() userId: string | null = '';
   @Input() message: string = '';
   @Input() count: number = 0;
 }
