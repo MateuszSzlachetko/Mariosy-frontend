@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../interfaces/user.interface';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
-import { Marios, Mariosy } from '../interfaces/marios.interface';
+import { Mariosy } from '../interfaces/marios.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -14,11 +14,7 @@ export class UserService {
   private usersData: User[] = [];
   private users$ = new BehaviorSubject<User[]>([]);
 
-  constructor(
-    private http: HttpClient,
-    private cookieService: CookieService,
-    private router: Router
-  ) {}
+  constructor(private http: HttpClient) {}
 
   get users() {
     if (this.usersData.length === 0) {

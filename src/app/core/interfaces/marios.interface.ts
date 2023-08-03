@@ -9,6 +9,14 @@ export interface Marios {
   creationDate: Date;
 }
 
+export interface MariosPayload {
+  characterName: string;
+  comment: string;
+  title: string;
+  authorId: string;
+  receiversIds: string[];
+}
+
 export interface Mariosy {
   mariosy: Marios[];
   count: number;
