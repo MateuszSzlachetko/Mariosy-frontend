@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { MariosService } from './../../core/services/marios.service';
+import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Marios } from 'src/app/core/interfaces/marios.interface';
 import { UserService } from 'src/app/core/services/user.service';
@@ -9,16 +10,23 @@ import { MariosModal } from './marios-modal/marios-modal.component';
   templateUrl: './marios.component.html',
   styleUrls: ['./marios.component.scss'],
 })
-export class MariosComponent {
+export class MariosComponent implements OnInit {
   @Input() marios!: Marios;
   maxCommentLength: number = 10;
+  iconSrc: string = '';
 
-  constructor(private userService: UserService, public dialog: MatDialog) {}
+  constructor(private marioService: MariosService, public dialog: MatDialog) {}
+
+  ngOnInit(): void {
+    this.iconSrc = this.marioService.getReactionIconSrc(
+      this.marios.characterName
+    );
+  }
 
   openDialog() {
     this.dialog.open(MariosModal, {
       panelClass: 'marios-panel',
-      data: this.marios,
+      data: { marios: this.marios, iconSrc: this.iconSrc },
     });
   }
 }

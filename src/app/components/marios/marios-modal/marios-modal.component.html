@@ -3,19 +3,19 @@
     <div class="top-row">
       <div class="author-container">
         <img src="assets/icons/person-icon.svg" alt="" />
-        <p class="author">From: {{ data.authorUsername }}</p>
+        <p class="author">From: {{ data.marios.authorUsername }}</p>
       </div>
 
       <div class="reaction-container">
-        <img src="assets/icons/star-icon.svg" alt="" />
-        <p class="reaction">{{ data.characterName }}</p>
+        <img [src]="data.iconSrc" alt="" />
+        <p class="reaction">{{ data.marios.characterName }}</p>
       </div>
     </div>
 
-    <div class="title-container">{{ data.title }}</div>
+    <div class="title-container">{{ data.marios.title }}</div>
 
     <div class="comment-container">
-      <p>{{ data.comment }}</p>
+      <p>{{ data.marios.comment }}</p>
     </div>
     <span class="close" mat-dialog-close></span>
   </div>

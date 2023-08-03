@@ -18,6 +18,6 @@ import { MatButtonModule } from '@angular/material/button';
 export class MariosModal {
   constructor(
     public dialogRef: MatDialogRef<MariosModal>,
-    @Inject(MAT_DIALOG_DATA) public data: Marios
+    @Inject(MAT_DIALOG_DATA) public data: { marios: Marios; iconSrc: string }
   ) {}
 }
