@@ -8,6 +8,7 @@ import { SessionService } from './session.service';
   providedIn: 'root',
 })
 export class MariosService {
+  private url: string = 'api/v1/marios';
   private reactions: ChipsReactions = new ChipsReactions();
   constructor(
     private http: HttpClient,
@@ -16,7 +17,7 @@ export class MariosService {
 
   postMarios(marios: MariosPayload) {
     console.log(marios);
-    const url = `api/v1/marios/add`;
+    const url = this.url + '/add';
     return this.http.post<Marios>(url, marios).subscribe((data) => {
       this.sessionService.updateGivenMarios(data);
     });
