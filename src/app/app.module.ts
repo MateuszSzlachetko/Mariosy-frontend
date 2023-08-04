@@ -22,6 +22,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { MatChipsModule } from '@angular/material/chips';
 import { LoaderInterceptor } from './core/interceptors/loader.interceptor';
 import { LoaderComponent } from './shared/loader/loader.component';
+import { RetryInterceptor } from './core/interceptors/retry.interceptor';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,11 @@ import { LoaderComponent } from './shared/loader/loader.component';
     MatChipsModule,
   ],
   providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: RetryInterceptor,
+      multi: true,
+    },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: LoaderInterceptor,

@@ -4,6 +4,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { Marios, Mariosy } from './../interfaces/marios.interface';
 import { UserService } from './user.service';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -20,7 +21,8 @@ export class SessionService {
 
   constructor(
     private userService: UserService,
-    private cookieService: CookieService
+    private cookieService: CookieService,
+    private router: Router
   ) {
     this.currentUserId = this.cookieService.get('loggedUserId');
   }
@@ -96,7 +98,7 @@ export class SessionService {
 
   getCurrentUserId(): string {
     const userId = this.cookieService.get('loggedUserId');
-    //if (userId === '') this.router.navigate(['/login']);
+    if (userId === '') this.router.navigate(['/login']);
     return this.cookieService.get('loggedUserId');
   }
 

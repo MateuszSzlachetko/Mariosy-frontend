@@ -1,8 +1,4 @@
-import { UserService } from './../../core/services/user.service';
-import { User } from './../../core/interfaces/user.interface';
-import { HttpClient } from '@angular/common/http';
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subject, takeUntil } from 'rxjs';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-user',
