@@ -1,7 +1,7 @@
 import { MatDialogModule } from '@angular/material/dialog';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +20,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { AddMariosComponent } from './components/home/add-marios/add-marios.component';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { MatChipsModule } from '@angular/material/chips';
+import { LoaderInterceptor } from './core/interceptors/loader.interceptor';
+import { LoaderComponent } from './shared/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,7 @@ import { MatChipsModule } from '@angular/material/chips';
     LoginComponent,
     SentComponent,
     AddMariosComponent,
+    LoaderComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,7 +49,13 @@ import { MatChipsModule } from '@angular/material/chips';
     NgSelectModule,
     MatChipsModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoaderInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
