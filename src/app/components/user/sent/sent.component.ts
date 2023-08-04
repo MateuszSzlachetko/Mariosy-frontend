@@ -21,7 +21,6 @@ export class SentComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(this.destroy$))
       .subscribe((data: Marios[]) => {
         this.givenMarios = data;
-        console.log(data);
       });
   }
 

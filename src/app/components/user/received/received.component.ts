@@ -21,7 +21,6 @@ export class ReceivedComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(this.destroy$))
       .subscribe((data: Marios[]) => {
         this.receivedMarios = data;
-        console.log(data);
       });
   }
 
