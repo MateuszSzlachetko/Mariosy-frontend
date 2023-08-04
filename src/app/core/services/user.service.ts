@@ -26,14 +26,12 @@ export class UserService {
   }
 
   getUserById(id: string) {
-    console.log(id);
     return this.http.get<User>(this.usersUrl + '/' + id);
   }
 
   fetchUsers() {
     return this.http.get<User[]>(this.usersUrl).subscribe((data) => {
       this.usersData = data;
-      console.log(this.users);
       this.users$.next(data);
     });
   }
