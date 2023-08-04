@@ -23,11 +23,7 @@
           {{ user.username }}
         </ng-option>
       </ng-select>
-      <p
-        *ngIf="!userSelect.valid && userSelect.touched"
-        class="error-message"
-        style="padding-left: 15px"
-      >
+      <p *ngIf="!userSelect.valid && userSelect.touched" class="error-message">
         Please select some receivers
       </p>
 
@@ -46,25 +42,19 @@
             [selected]="chip.selected"
             class="custom-chip"
           >
-            <div
-              style="
-                display: flex;
-                justify-content: space-between;
-                align-items: space-between;
-              "
-            >
-              <img [src]="chip.iconSrc" alt="" style="margin-right: 10px" />
+            <div class="chip-content">
+              <img [src]="chip.iconSrc" alt="star-icon" />
               {{ chip.name }}
             </div>
           </mat-basic-chip-option>
         </mat-chip-listbox>
-        <p
-          *ngIf="!chipsListbox.valid && chipsListbox.touched"
-          class="error-message"
-        >
-          Please select a reaction
-        </p>
       </div>
+      <p
+        *ngIf="!chipsListbox.valid && chipsListbox.touched"
+        class="error-message"
+      >
+        Please select a reaction
+      </p>
 
       <div class="title-container">
         <div><label>Title:</label></div>
@@ -80,10 +70,10 @@
             #title="ngModel"
           />
         </div>
-        <p *ngIf="!title.valid && title.touched" class="error-message">
-          Please leave a title
-        </p>
       </div>
+      <p *ngIf="!title.valid && title.touched" class="error-message">
+        Please leave a title
+      </p>
 
       <div class="comment-container">
         <div><label>Comment:</label></div>
@@ -101,11 +91,7 @@
         </div>
         <div class="counter">{{ commentText.length }}/255</div>
       </div>
-      <p
-        *ngIf="!comment.valid && comment.touched"
-        class="error-message"
-        style="padding-left: 15px"
-      >
+      <p *ngIf="!comment.valid && comment.touched" class="error-message">
         Please leave a comment
       </p>
 
