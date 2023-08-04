@@ -23,6 +23,7 @@ import { MatChipsModule } from '@angular/material/chips';
 import { LoaderInterceptor } from './core/interceptors/loader.interceptor';
 import { LoaderComponent } from './shared/loader/loader.component';
 import { RetryInterceptor } from './core/interceptors/retry.interceptor';
+import { ErrorInterceptor } from './core/interceptors/error.interceptor';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,11 @@ import { RetryInterceptor } from './core/interceptors/retry.interceptor';
     {
       provide: HTTP_INTERCEPTORS,
       useClass: RetryInterceptor,
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ErrorInterceptor,
       multi: true,
     },
     {
