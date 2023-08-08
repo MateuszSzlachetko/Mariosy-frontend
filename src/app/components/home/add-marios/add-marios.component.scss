@@ -4,6 +4,7 @@ $main-gray-color: #bababa;
 .container {
   @include flex-display(center, center, column);
   width: 100vw;
+  margin-bottom: 100px;
 }
 
 .form-container {
