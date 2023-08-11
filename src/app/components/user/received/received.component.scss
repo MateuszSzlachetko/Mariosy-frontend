@@ -6,11 +6,11 @@
 }
 
 .message-container {
-  @include flex-display(flex-start, center, row);
+  display: block;
   @include font-style(700, 25px, 4px);
   width: 100%;
   max-width: $content-width;
-  margin-top: 40px;
+  margin-top: 65px;
   color: #ffffff;
 }
 
