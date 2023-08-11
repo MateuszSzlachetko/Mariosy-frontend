@@ -1,3 +1,5 @@
+@import "src/styles.scss";
+
 $card-width: 500px;
 $card-height: 250px;
 $mario-logo-width: 200px;
@@ -20,10 +22,9 @@ $mario-logo-height: 200px;
   display: flex;
   justify-content: space-between;
   flex-direction: row;
-
   width: $card-width;
   height: $card-height;
-  border-radius: 5px;
+  border-radius: $main-border-radius;
   background-color: #ffffff;
   box-shadow: 6px 8px 10px rgba($color: #000000, $alpha: 0.45);
 }

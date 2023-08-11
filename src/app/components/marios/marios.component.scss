@@ -8,7 +8,7 @@
   background-color: #ffffff;
   padding-left: 6px;
   padding-right: 6px;
-  border-radius: 5px;
+  border-radius: $main-border-radius;
   cursor: pointer;
   position: relative;
 
@@ -28,7 +28,7 @@
       height: 100%;
       background-color: rgba(0, 0, 0, 0.6);
       z-index: 1;
-      border-radius: 5px;
+      border-radius: $main-border-radius;
     }
 
     &::after {

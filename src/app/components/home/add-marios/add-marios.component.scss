@@ -1,6 +1,6 @@
 @import "src/styles.scss";
 $main-gray-color: #bababa;
-
+$yellow-border: 4px solid #fccf00;
 .container {
   @include flex-display(center, center, column);
   width: 100vw;
@@ -13,7 +13,7 @@ $main-gray-color: #bababa;
   width: $content-width;
   background-color: white;
   margin-top: 80px;
-  border-radius: 5px;
+  border-radius: $main-border-radius;
 }
 
 .back-button-container {
@@ -31,9 +31,9 @@ $main-gray-color: #bababa;
   @include font-style(600, 25px, 1px);
   border: none;
   border-radius: 0px;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  border-bottom: 4px solid #fccf00;
+  border-top-left-radius: $main-border-radius;
+  border-top-right-radius: $main-border-radius;
+  border-bottom: $yellow-border;
   min-height: 60px;
   padding: 0px !important;
 }
@@ -79,7 +79,7 @@ $main-gray-color: #bababa;
   padding: 5px 20px;
   margin-left: 5px;
   margin-right: 5px;
-  border-radius: 5px;
+  border-radius: $main-border-radius;
   border: 2px solid $main-gray-color;
   background-color: white;
 }
@@ -99,7 +99,7 @@ $main-gray-color: #bababa;
 }
 
 .title-container {
-  border-top: 4px solid #fccf00;
+  border-top: $yellow-border;
 
   @include flex-display(center, flex-start, column);
   @include font-style(700, 24px, 1px);
@@ -114,7 +114,7 @@ $main-gray-color: #bababa;
 
 .title-input {
   border: 2px solid $main-gray-color;
-  border-radius: 5px;
+  border-radius: $main-border-radius;
   @include font-style(700, 18px, 1px);
   height: 40px;
   width: $content-width - 70px;
@@ -131,7 +131,7 @@ $main-gray-color: #bababa;
 .comment-container {
   @include flex-display(center, flex-start, column);
   @include font-style(700, 24px, 1px);
-  border-top: 4px solid #fccf00;
+  border-top: $yellow-border;
   padding-left: 15px;
   padding-top: 20px;
   padding-bottom: 10px;
@@ -177,7 +177,7 @@ $main-gray-color: #bababa;
 
   background-color: #ffdf24;
   border: solid 3px #000000;
-  border-radius: 5px;
+  border-radius: $main-border-radius;
   cursor: pointer;
 
   transition: transform 0.1s ease-in-out, box-shadow 0.4s ease-out;
@@ -222,8 +222,8 @@ textarea.ng-invalid.ng-touched {
 .user-select.ng-invalid.ng-touched {
   border: 2px solid red;
   border-bottom-width: 3px;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
+  border-top-left-radius: $main-border-radius;
+  border-top-right-radius: $main-border-radius;
 
   & ::ng-deep .ng-select-container {
     border: none;
