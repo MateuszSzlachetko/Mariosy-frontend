@@ -3,11 +3,11 @@
 .marios-container {
   display: flex;
   flex-direction: column;
-  width: 314px;
-  height: 160px;
+  width: 19.625rem;
+  height: 10rem;
   background-color: #ffffff;
-  padding-left: 6px;
-  padding-right: 6px;
+  padding-left: 0.375rem;
+  padding-right: 0.375rem;
   border-radius: $main-border-radius;
   cursor: pointer;
   position: relative;
@@ -32,13 +32,13 @@
     }
 
     &::after {
-      @include font-style(800, 30px, 1px);
+      @include font-style(800, 1.875rem, 0.063rem);
       content: "READ MORE";
       position: absolute;
-      top: 65px;
+      top: 4.063rem;
       z-index: 2;
       color: white;
-      margin-left: -6px;
+      margin-left: -0.375rem;
       width: 100%;
       text-align: center;
     }
@@ -51,15 +51,15 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  margin-top: 8px;
+  margin-top: 0.5rem;
 }
 
 .inner-column > img {
-  margin-right: 8px;
+  margin-right: 0.5rem;
 }
 
 .marios-container > div > span {
-  @include font-style(700, 16px, 0px);
+  @include font-style(700, 1rem, 0rem);
   margin: 0;
 }
 

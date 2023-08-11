@@ -1,25 +1,25 @@
 @import "src/styles.scss";
 $main-gray-color: #bababa;
-$yellow-border: 4px solid #fccf00;
+$yellow-border: 0.25rem solid #fccf00;
 .container {
   @include flex-display(center, center, column);
   width: 100vw;
-  margin-bottom: 100px;
+  margin-bottom: 6.25rem;
 }
 
 .form-container {
   @include flex-display(center, flex-start, row);
-  @include font-style(700, 25px, 4px);
+  @include font-style(700, 1.563rem, 0.25rem);
   width: $content-width;
   background-color: white;
-  margin-top: 80px;
+  margin-top: 5rem;
   border-radius: $main-border-radius;
 }
 
 .back-button-container {
   @include flex-display(flex-start, center, row);
   width: $content-width;
-  margin-top: 20px;
+  margin-top: 1.25rem;
 }
 
 .ng-select.user-select {
@@ -28,19 +28,19 @@ $yellow-border: 4px solid #fccf00;
 
 .ng-select.user-select ::ng-deep .ng-select-container {
   @include flex-display(center, center, row);
-  @include font-style(600, 25px, 1px);
+  @include font-style(600, 1.563rem, 0.063rem);
   border: none;
-  border-radius: 0px;
+  border-radius: 0rem;
   border-top-left-radius: $main-border-radius;
   border-top-right-radius: $main-border-radius;
   border-bottom: $yellow-border;
-  min-height: 60px;
-  padding: 0px !important;
+  min-height: 3.75rem;
+  padding: 0rem !important;
 }
 
 .ng-select.user-select ::ng-deep .ng-value-container {
   @include flex-display(flex-start, center, row);
-  padding: 5px !important;
+  padding: 0.313rem !important;
 }
 
 .ng-select.user-select ::ng-deep .ng-placeholder {
@@ -48,24 +48,24 @@ $yellow-border: 4px solid #fccf00;
   color: #8d8080;
   background-image: url("/assets/icons/person-icon-yellow.svg");
   background-repeat: no-repeat;
-  background-position: left 5px bottom 5px;
-  text-indent: 50px;
-  padding: 0px !important;
-  margin-top: 10px;
+  background-position: left 0.313rem bottom 0.313rem;
+  text-indent: 3.125rem;
+  padding: 0rem !important;
+  margin-top: 0.625rem;
 }
 
 .category-container {
   @include flex-display(center, flex-start, column);
-  @include font-style(700, 24px, 1px);
-  padding-left: 15px;
-  width: $content-width -20px;
-  margin-top: 20px;
+  @include font-style(700, 1.5rem, 0.063rem);
+  padding-left: 0.938rem;
+  width: $content-width -1.25rem;
+  margin-top: 1.25rem;
 }
 
 .chips-container {
   @include flex-display(center, space-between, row);
-  margin-top: 20px;
-  margin-bottom: 10px;
+  margin-top: 1.25rem;
+  margin-bottom: 0.625rem;
 }
 
 .mat-mdc-chip {
@@ -73,14 +73,14 @@ $yellow-border: 4px solid #fccf00;
 }
 
 .custom-chip {
-  @include font-style(700, 16px, 1px);
+  @include font-style(700, 1rem, 0.063rem);
 
-  height: 25px;
-  padding: 5px 20px;
-  margin-left: 5px;
-  margin-right: 5px;
+  height: 1.563rem;
+  padding: 0.313rem 1.25rem;
+  margin-left: 0.313rem;
+  margin-right: 0.313rem;
   border-radius: $main-border-radius;
-  border: 2px solid $main-gray-color;
+  border: 0.125rem solid $main-gray-color;
   background-color: white;
 }
 
@@ -90,7 +90,7 @@ $yellow-border: 4px solid #fccf00;
   align-items: space-between;
 
   & > img {
-    margin-right: 10px;
+    margin-right: 0.625rem;
   }
 }
 
@@ -102,81 +102,81 @@ $yellow-border: 4px solid #fccf00;
   border-top: $yellow-border;
 
   @include flex-display(center, flex-start, column);
-  @include font-style(700, 24px, 1px);
-  padding-left: 15px;
-  padding-top: 20px;
-  margin-top: 20px;
+  @include font-style(700, 1.5rem, 0.063rem);
+  padding-left: 0.938rem;
+  padding-top: 1.25rem;
+  margin-top: 1.25rem;
 
   & > div {
-    margin-bottom: 10px;
+    margin-bottom: 0.625rem;
   }
 }
 
 .title-input {
-  border: 2px solid $main-gray-color;
+  border: 0.125rem solid $main-gray-color;
   border-radius: $main-border-radius;
-  @include font-style(700, 18px, 1px);
-  height: 40px;
-  width: $content-width - 70px;
-  padding-left: 10px;
-  margin-top: 10px;
+  @include font-style(700, 1.125rem, 0.063rem);
+  height: 2.5rem;
+  width: $content-width - 4.375rem;
+  padding-left: 0.625rem;
+  margin-top: 0.625rem;
 
   &::placeholder {
-    @include font-style(700, 16px, 1px);
+    @include font-style(700, 1rem, 0.063rem);
     color: $main-gray-color;
-    line-height: 90px;
+    line-height: 5.625rem;
   }
 }
 
 .comment-container {
   @include flex-display(center, flex-start, column);
-  @include font-style(700, 24px, 1px);
+  @include font-style(700, 1.5rem, 0.063rem);
   border-top: $yellow-border;
-  padding-left: 15px;
-  padding-top: 20px;
-  padding-bottom: 10px;
-  width: $content-width -20px;
-  margin-top: 20px;
+  padding-left: 0.938rem;
+  padding-top: 1.25rem;
+  padding-bottom: 0.625rem;
+  width: $content-width -1.25rem;
+  margin-top: 1.25rem;
   position: relative;
 
   & > div {
-    margin-bottom: 10px;
+    margin-bottom: 0.625rem;
   }
 }
 
 .comment-textarea {
-  border: 2px solid $main-gray-color;
-  border-radius: 5px;
-  @include font-style(700, 20px, 1px);
-  height: 180px;
-  width: $content-width - 70px;
-  margin-top: 10px;
-  padding-left: 10px;
+  border: 0.125rem solid $main-gray-color;
+  border-radius: 0.313rem;
+  @include font-style(700, 1.25rem, 0.063rem);
+  height: 11.25rem;
+  width: $content-width - 4.375rem;
+  margin-top: 0.625rem;
+  padding-left: 0.625rem;
   resize: none;
 }
 
 .counter {
-  @include font-style(700, 18px, 1px);
+  @include font-style(700, 1.125rem, 0.063rem);
   color: $main-gray-color;
   position: absolute;
-  bottom: 35px;
-  right: 45px;
+  bottom: 1.25rem;
+  right: 2.813rem;
 }
 
 .send-button-container {
   @include flex-display(flex-end, center, row);
-  padding-right: 40px;
-  margin-bottom: 15px;
+  padding-right: 2.5rem;
+  margin-bottom: 0.938rem;
 }
 
 .send-button {
-  @include font-style(700, 17px, 1px);
+  @include font-style(700, 1.063rem, 0.063rem);
   @include flex-display(center, center, row);
-  width: 120px;
-  height: 45px;
+  width: 7.5rem;
+  height: 2.813rem;
 
   background-color: #ffdf24;
-  border: solid 3px #000000;
+  border: solid 0.188rem #000000;
   border-radius: $main-border-radius;
   cursor: pointer;
 
@@ -184,44 +184,44 @@ $yellow-border: 4px solid #fccf00;
   filter: blur(0);
 
   &:hover {
-    box-shadow: 0px 15px 25px -5px rgba(#d7d7d7, 90%);
-    transform: perspective(1px) scale(1.0588);
+    box-shadow: 0rem 0.938rem 1.563rem -0.313rem rgba(#d7d7d7, 90%);
+    transform: perspective(0.063rem) scale(1.0588);
   }
 
   &:active {
-    box-shadow: 0px 4px 8px rgba(#d7d7d7, 50%);
-    transform: perspective(1px) scale(0.9412);
+    box-shadow: 0rem 0.25rem 0.5rem rgba(#d7d7d7, 50%);
+    transform: perspective(0.063rem) scale(0.9412);
   }
 
   &:disabled {
     background-color: $main-gray-color;
     &:hover {
-      box-shadow: 0px 0px 0px 0px rgba(#d7d7d7, 90%);
-      transform: perspective(1px) scale(1);
+      box-shadow: 0rem 0rem 0rem 0rem rgba(#d7d7d7, 90%);
+      transform: perspective(0.063rem) scale(1);
     }
 
     &:active {
-      box-shadow: 0px 0px 0px rgba(#d7d7d7, 50%);
-      transform: perspective(1px) scale(1);
+      box-shadow: 0rem 0rem 0rem rgba(#d7d7d7, 50%);
+      transform: perspective(0.063rem) scale(1);
     }
   }
 }
 
 input.ng-invalid.ng-touched {
-  border: 2px solid red;
+  border: 0.125rem solid red;
 }
 
 textarea.ng-invalid.ng-touched {
-  border: 2px solid red;
+  border: 0.125rem solid red;
 }
 
 .chips-container.ng-invalid.ng-touched mat-basic-chip-option {
-  border: 2px solid red;
+  border: 0.125rem solid red;
 }
 
 .user-select.ng-invalid.ng-touched {
-  border: 2px solid red;
-  border-bottom-width: 3px;
+  border: 0.125rem solid red;
+  border-bottom-width: 0.188rem;
   border-top-left-radius: $main-border-radius;
   border-top-right-radius: $main-border-radius;
 
@@ -232,8 +232,8 @@ textarea.ng-invalid.ng-touched {
 
 .error-message {
   color: red;
-  @include font-style(700, 14px, 1px);
+  @include font-style(700, 0.875rem, 0.063rem);
   margin: 0;
   padding: 0;
-  padding-left: 15px;
+  padding-left: 0.938rem;
 }

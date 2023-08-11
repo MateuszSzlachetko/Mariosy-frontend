@@ -7,10 +7,10 @@
 
 .message-container {
   display: block;
-  @include font-style(700, 25px, 4px);
+  @include font-style(700, 1.563rem, 0.25rem);
   width: 100%;
   max-width: $content-width;
-  margin-top: 65px;
+  margin-top: 4.063rem;
   color: #ffffff;
 }
 
@@ -18,5 +18,5 @@
   @include flex-display(flex-start, center, row);
   width: 100%;
   max-width: $content-width;
-  margin-top: 20px;
+  margin-top: 1.25rem;
 }
