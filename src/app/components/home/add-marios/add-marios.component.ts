@@ -11,6 +11,7 @@ import {
   Reaction,
 } from '../../../core/models/chips-reaction.model';
 import { NgSelectComponent } from '@ng-select/ng-select';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-marios',
@@ -25,11 +26,13 @@ export class AddMariosComponent implements OnInit, OnDestroy {
   users: User[] = [];
   private destroy$: Subject<void> = new Subject();
   commentText: string = '';
+  userSelectPlaceholder = 'Who you want to recognize?';
 
   constructor(
     private userService: UserService,
     private sessionService: SessionService,
-    private marioService: MariosService
+    private marioService: MariosService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -69,5 +72,9 @@ export class AddMariosComponent implements OnInit, OnDestroy {
     this.userService.users.pipe(takeUntil(this.destroy$)).subscribe((data) => {
       this.users = data;
     });
+  }
+
+  navigateToHome() {
+    this.router.navigateByUrl('/home');
   }
 }

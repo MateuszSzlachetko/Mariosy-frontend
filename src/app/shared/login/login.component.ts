@@ -22,7 +22,6 @@ export class LoginComponent {
 
     this.userService.getUserByUsername(username).subscribe((data) => {
       const user: User = data;
-      console.log(data);
       this.sessionService.saveCurrentUserCookie(user);
     });
   }

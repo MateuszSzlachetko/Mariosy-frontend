@@ -1,13 +1,10 @@
 <div class="container">
   <div class="back-button-container">
-    <a [routerLink]="['/home']">
-      <button class="back-button" type="button">
-        <img src="assets/icons/left-arrow.svg" alt="" />
-        BACK
-      </button>
-    </a>
+    <button class="back-button" type="button" (click)="navigateToHome()">
+      <img src="assets/icons/left-arrow.svg" alt="" />
+      BACK
+    </button>
   </div>
-
   <div class="form-container">
     <form (ngSubmit)="onSubmit()" #f="ngForm">
       <ng-select
@@ -15,7 +12,7 @@
         name="userSelect"
         [multiple]="true"
         class="user-select"
-        placeholder="Who you want to recognize?"
+        [placeholder]="userSelectPlaceholder"
         required
         #userSelect="ngModel"
       >
