@@ -3,6 +3,7 @@
 @import "~@ng-select/ng-select/themes/default.theme.css";
 
 $content-width: 1020px;
+$main-border-radius: 5px;
 
 @mixin font-style($weight, $size, $spacing) {
   font-family: "Open Sans", sans-serif;
