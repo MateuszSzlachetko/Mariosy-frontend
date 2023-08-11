@@ -20,9 +20,12 @@
           {{ user.username }}
         </ng-option>
       </ng-select>
-      <p *ngIf="!userSelect.valid && userSelect.touched" class="error-message">
+      <span
+        *ngIf="!userSelect.valid && userSelect.touched"
+        class="error-message"
+      >
         Please select some receivers
-      </p>
+      </span>
 
       <div class="category-container">
         <div><label>Select category:</label></div>
@@ -46,12 +49,12 @@
           </mat-basic-chip-option>
         </mat-chip-listbox>
       </div>
-      <p
+      <span
         *ngIf="!chipsListbox.valid && chipsListbox.touched"
         class="error-message"
       >
         Please select a reaction
-      </p>
+      </span>
 
       <div class="title-container">
         <div><label>Title:</label></div>
@@ -68,9 +71,9 @@
           />
         </div>
       </div>
-      <p *ngIf="!title.valid && title.touched" class="error-message">
+      <span *ngIf="!title.valid && title.touched" class="error-message">
         Please leave a title
-      </p>
+      </span>
 
       <div class="comment-container">
         <div><label>Comment:</label></div>
@@ -86,11 +89,11 @@
             #comment="ngModel"
           ></textarea>
         </div>
-        <div class="counter">{{ commentText.length }}/255</div>
+        <span class="counter">{{ commentText.length }}/255</span>
       </div>
-      <p *ngIf="!comment.valid && comment.touched" class="error-message">
+      <span *ngIf="!comment.valid && comment.touched" class="error-message">
         Please leave a comment
-      </p>
+      </span>
 
       <div class="send-button-container">
         <button class="send-button" type="submit" [disabled]="!f.valid">
