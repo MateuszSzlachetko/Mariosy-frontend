@@ -16,7 +16,6 @@ export class MariosService {
   ) {}
 
   postMarios(marios: MariosPayload) {
-    console.log(marios);
     const url = this.url + '/add';
     return this.http.post<Marios>(url, marios).subscribe((data) => {
       this.sessionService.updateGivenMarios(data);

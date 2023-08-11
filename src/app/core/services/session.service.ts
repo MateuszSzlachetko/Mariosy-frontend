@@ -98,7 +98,7 @@ export class SessionService {
 
   getCurrentUserId(): string {
     const userId = this.cookieService.get('loggedUserId');
-    // if (userId === '') this.router.navigate(['/login']);
+    // if (!userId) this.router.navigate(['/login']);
     return this.cookieService.get('loggedUserId');
   }
 

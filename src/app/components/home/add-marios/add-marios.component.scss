@@ -105,7 +105,6 @@ $main-gray-color: #bababa;
   @include font-style(700, 24px, 1px);
   padding-left: 15px;
   padding-top: 20px;
-  width: $content-width -20px;
   margin-top: 20px;
 
   & > div {

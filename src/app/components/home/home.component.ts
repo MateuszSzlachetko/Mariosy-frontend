@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { SessionService } from './../../core/services/session.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subject, takeUntil } from 'rxjs';
@@ -21,7 +22,8 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   constructor(
     private userService: UserService,
-    private sessionService: SessionService
+    private sessionService: SessionService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -52,5 +54,9 @@ export class HomeComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.destroy$.next();
     this.destroy$.complete();
+  }
+
+  navigateToAdd() {
+    this.router.navigateByUrl('/add');
   }
 }
