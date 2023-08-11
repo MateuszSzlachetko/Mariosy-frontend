@@ -1,20 +1,20 @@
 <div class="marios-container" mat-button (click)="openDialog()">
   <div class="inner-column">
     <img src="assets/icons/person-icon.svg" alt="person icon" />
-    <p class="author">From: {{ marios.authorUsername }}</p>
+    <span class="author">From: {{ marios.authorUsername }}</span>
   </div>
 
   <div class="inner-column">
     <img [src]="iconSrc" alt="reaction icon" />
-    <p>{{ marios.characterName }}</p>
+    <span>{{ marios.characterName }}</span>
   </div>
 
   <div class="inner-column">
-    <p>T: {{ marios.title }}</p>
+    <span>T: {{ marios.title }}</span>
   </div>
 
   <div class="inner-column">
-    <p class="comment">
+    <span class="comment">
       {{
         marios.comment.length > maxCommentLength
           ? (marios.comment | slice : 0 : maxCommentLength) + "..."
@@ -23,6 +23,6 @@
       <span class="see-more" *ngIf="marios.comment.length > maxCommentLength">
         See more
       </span>
-    </p>
+    </span>
   </div>
 </div>

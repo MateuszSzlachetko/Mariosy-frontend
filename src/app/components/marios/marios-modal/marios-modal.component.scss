@@ -94,7 +94,7 @@
   width: 640px;
 }
 
-.comment-container > p {
+.comment-container > span {
   @include font-style(700, 18px, 0px);
   margin: 0;
   color: #a1a1a1;
