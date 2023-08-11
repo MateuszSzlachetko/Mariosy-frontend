@@ -58,18 +58,16 @@
 
       <div class="title-container">
         <label>Title:</label>
-        <div>
-          <input
-            type="text"
-            id="title"
-            ngModel
-            name="title"
-            placeholder="Enter marios title"
-            class="title-input"
-            required
-            #title="ngModel"
-          />
-        </div>
+        <input
+          type="text"
+          id="title"
+          ngModel
+          name="title"
+          placeholder="Enter marios title"
+          class="title-input"
+          required
+          #title="ngModel"
+        />
       </div>
       <span *ngIf="!title.valid && title.touched" class="error-message">
         Please leave a title
@@ -77,18 +75,16 @@
 
       <div class="comment-container">
         <label>Comment:</label>
-        <div>
-          <textarea
-            type="text"
-            id="comment"
-            [(ngModel)]="commentText"
-            name="comment"
-            class="comment-textarea"
-            maxlength="255"
-            required
-            #comment="ngModel"
-          ></textarea>
-        </div>
+        <textarea
+          type="text"
+          id="comment"
+          [(ngModel)]="commentText"
+          name="comment"
+          class="comment-textarea"
+          maxlength="255"
+          required
+          #comment="ngModel"
+        ></textarea>
         <span class="counter">{{ commentText.length }}/255</span>
       </div>
       <span *ngIf="!comment.valid && comment.touched" class="error-message">
