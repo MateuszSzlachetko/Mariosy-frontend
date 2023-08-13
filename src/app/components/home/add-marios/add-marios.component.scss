@@ -10,7 +10,8 @@ $yellow-border: 0.25rem solid #fccf00;
 .form-container {
   @include flex-display(center, flex-start, row);
   @include font-style(700, 1.563rem, 0.25rem);
-  width: $content-width;
+  width: 100%;
+  max-width: $content-width;
   background-color: white;
   margin-top: 5rem;
   border-radius: $main-border-radius;
@@ -18,7 +19,8 @@ $yellow-border: 0.25rem solid #fccf00;
 
 .back-button-container {
   @include flex-display(flex-start, center, row);
-  width: $content-width;
+  width: 100%;
+  max-width: $content-width;
   margin-top: 1.25rem;
 }
 

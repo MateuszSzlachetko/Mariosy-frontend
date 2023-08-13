@@ -7,13 +7,15 @@
 
 .marios-info-container {
   @include flex-display(space-between, center, row);
-  width: $content-width;
+  width: 100%;
+  max-width: $content-width;
   margin-top: 3.125rem;
 }
 
 .add-marios-container {
   @include flex-display(flex-end, center, row);
-  width: $content-width;
+  width: 100%;
+  max-width: $content-width;
   margin-top: 1.875rem;
 }
 
@@ -45,7 +47,8 @@
 .message-container {
   @include flex-display(flex-start, center, row);
   @include font-style(700, 1.563rem, 0.25rem);
-  width: $content-width;
+  width: 100%;
+  max-width: $content-width;
   margin-top: 0.625rem;
   color: #ffffff;
 }
