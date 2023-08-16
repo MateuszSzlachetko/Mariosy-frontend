@@ -9,24 +9,24 @@
   @include flex-display(space-between, center, row);
   width: 100%;
   max-width: $content-width;
-  margin-top: 3.125rem;
+  margin-top: 3.13rem;
 }
 
 .add-marios-container {
   @include flex-display(flex-end, center, row);
   width: 100%;
   max-width: $content-width;
-  margin-top: 1.875rem;
+  margin-top: 1.88rem;
 }
 
 .add-marios-button {
-  @include font-style(700, 1.063rem, 0.063rem);
+  @include font-style(700, 1.06rem, 0.06rem);
   @include flex-display(space-between, center, row);
-  width: 11.875rem;
-  height: 2.813rem;
-  padding-left: 0.625rem;
+  width: 11.88rem;
+  height: 2.81rem;
+  padding-left: 0.63rem;
   background-color: #ffdf24;
-  border: solid 0.188rem #ffffff;
+  border: solid 0.19rem #ffffff;
   border-radius: $main-border-radius;
   cursor: pointer;
 
@@ -34,22 +34,22 @@
   filter: blur(0);
 
   &:hover {
-    box-shadow: 0rem 0.938rem 1.563rem -0.313rem rgba(#1e509f, 90%);
-    transform: perspective(0.063rem) scale(1.0588);
+    box-shadow: 0rem 0.94rem 1.56rem -0.31rem rgba(#1e509f, 90%);
+    transform: perspective(0.06rem) scale(1.0588);
   }
 
   &:active {
     box-shadow: 0rem 0.25rem 0.5rem rgba(#1e509f, 50%);
-    transform: perspective(0.063rem) scale(0.9412);
+    transform: perspective(0.06rem) scale(0.9412);
   }
 }
 
 .message-container {
   @include flex-display(flex-start, center, row);
-  @include font-style(700, 1.563rem, 0.25rem);
+  @include font-style(700, 1.56rem, 0.25rem);
   width: 100%;
   max-width: $content-width;
-  margin-top: 0.625rem;
+  margin-top: 0.63rem;
   color: #ffffff;
 }
 

@@ -3,7 +3,7 @@
 @import "~@ng-select/ng-select/themes/default.theme.css";
 
 $content-width: 63.75rem;
-$main-border-radius: 0.313rem;
+$main-border-radius: 0.31rem;
 
 @mixin font-style($weight, $size, $spacing) {
   font-family: "Open Sans", sans-serif;
@@ -20,28 +20,28 @@ $main-border-radius: 0.313rem;
 }
 
 .back-button {
-  @include font-style(700, 1.063rem, 0.063rem);
+  @include font-style(700, 1.06rem, 0.06rem);
   @include flex-display(space-between, center, row);
   width: 7.5rem;
-  height: 2.813rem;
-  padding-left: 0.625rem;
-  padding-right: 0.938rem;
+  height: 2.81rem;
+  padding-left: 0.63rem;
+  padding-right: 0.94rem;
   background-color: #ffdf24;
-  border: solid 0.188rem #ffffff;
-  border-radius: 0.313rem;
+  border: solid 0.19rem #ffffff;
+  border-radius: 0.31rem;
   cursor: pointer;
 
   transition: transform 0.1s ease-in-out, box-shadow 0.4s ease-out;
   filter: blur(0);
 
   &:hover {
-    box-shadow: 0rem 0.938rem 1.563rem -0.313rem rgba(#9a272d, 90%);
-    transform: perspective(0.063rem) scale(1.0588);
+    box-shadow: 0rem 0.94rem 1.56rem -0.31rem rgba(#9a272d, 90%);
+    transform: perspective(0.06rem) scale(1.0588);
   }
 
   &:active {
     box-shadow: 0rem 0.25rem 0.5rem rgba(#9a272d, 50%);
-    transform: perspective(0.063rem) scale(0.9412);
+    transform: perspective(0.06rem) scale(0.9412);
   }
 }
 

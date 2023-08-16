@@ -7,10 +7,10 @@
 
 .message-container {
   display: block;
-  @include font-style(700, 1.563rem, 0.25rem);
+  @include font-style(700, 1.56rem, 0.25rem);
   width: 100%;
   max-width: $content-width;
-  margin-top: 4.063rem;
+  margin-top: 4.06rem;
   color: #ffffff;
 }
 

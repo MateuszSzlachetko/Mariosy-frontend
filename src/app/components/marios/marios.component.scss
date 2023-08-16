@@ -3,11 +3,11 @@
 .marios-container {
   display: flex;
   flex-direction: column;
-  width: 19.625rem;
+  width: 19.63rem;
   height: 10rem;
   background-color: #ffffff;
-  padding-left: 0.375rem;
-  padding-right: 0.375rem;
+  padding-left: 0.38rem;
+  padding-right: 0.38rem;
   border-radius: $main-border-radius;
   cursor: pointer;
   position: relative;
@@ -32,13 +32,13 @@
     }
 
     &::after {
-      @include font-style(800, 1.875rem, 0.063rem);
+      @include font-style(800, 1.88rem, 0.06rem);
       content: "READ MORE";
       position: absolute;
-      top: 4.063rem;
+      top: 4.06rem;
       z-index: 2;
       color: white;
-      margin-left: -0.375rem;
+      margin-left: -0.38rem;
       width: 100%;
       text-align: center;
     }
