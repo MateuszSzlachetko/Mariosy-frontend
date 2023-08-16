@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="back-button-container">
+    <button class="back-button" type="button" (click)="navigateToHome()">
+      <img src="assets/icons/left-arrow.svg" alt="" />
+      BACK
+    </button>
+  </div>
+
+  <span class="message-container">RECEIVED MARIOS:</span>
+
+  <app-marios-grid [mariosArray]="receivedMarios"></app-marios-grid>
+</div>

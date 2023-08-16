@@ -1,0 +1,17 @@
+@import "src/styles.scss";
+
+.header-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  width: 100vw;
+  margin-top: 1.25rem;
+}
+
+.bottom-line {
+  width: $content-width;
+  margin-top: 1.25rem;
+  border: 0.13rem solid rgb(255, 255, 255);
+}

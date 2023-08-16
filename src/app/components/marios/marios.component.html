@@ -1,0 +1,32 @@
+<div class="marios-container" mat-button (click)="openDialog()">
+  <div class="inner-column">
+    <img src="assets/icons/person-icon.svg" alt="person icon" />
+    <span class="author">From: {{ marios.authorUsername }}</span>
+  </div>
+
+  <div class="inner-column">
+    <img [src]="iconSrc" alt="reaction icon" />
+    <span>{{ marios.characterName }}</span>
+  </div>
+
+  <div class="inner-column">
+    <span>T: {{ marios.title }}</span>
+  </div>
+
+  <div class="inner-column">
+    <span class="comment">
+      {{
+        marios.comment.length > maxCommentLengthUntilSeeMore
+          ? (marios.comment | slice : 0 : maxCommentLengthUntilSeeMore) + "..."
+          : marios.comment
+      }}
+      <span
+        class="see-more"
+        *ngIf="marios.comment.length > maxCommentLengthUntilSeeMore"
+      >
+        See more
+      </span>
+    </span>
+  </div>
+  <div class="read-more">READ MORE</div>
+</div>

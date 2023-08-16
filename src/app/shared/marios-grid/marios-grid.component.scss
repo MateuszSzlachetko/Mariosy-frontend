@@ -1,0 +1,10 @@
+@import "src/styles.scss";
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  width: $content-width;
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+}

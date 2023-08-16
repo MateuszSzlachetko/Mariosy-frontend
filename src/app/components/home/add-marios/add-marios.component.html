@@ -1,0 +1,101 @@
+<div class="container">
+  <div class="back-button-container">
+    <button class="back-button" type="button" (click)="navigateToHome()">
+      <img src="assets/icons/left-arrow.svg" alt="" />
+      BACK
+    </button>
+  </div>
+  <div class="form-container">
+    <form (ngSubmit)="onSubmit()" #f="ngForm">
+      <ng-select
+        [(ngModel)]="selected"
+        name="userSelect"
+        [multiple]="true"
+        class="user-select"
+        [placeholder]="userSelectPlaceholder"
+        required
+        #userSelect="ngModel"
+      >
+        <ng-option *ngFor="let user of users" [value]="user.externalId">
+          {{ user.username }}
+        </ng-option>
+      </ng-select>
+      <span
+        *ngIf="!userSelect.valid && userSelect.touched"
+        class="error-message"
+      >
+        Please select some receivers
+      </span>
+
+      <div class="category-container">
+        <label>Select category:</label>
+
+        <mat-chip-listbox
+          class="chips-container"
+          ngModel
+          name="chips"
+          required
+          #chipsListbox="ngModel"
+        >
+          <mat-basic-chip-option
+            *ngFor="let chip of chips"
+            [selected]="chip.selected"
+            class="custom-chip"
+          >
+            <div class="chip-content">
+              <img [src]="chip.iconSrc" alt="star-icon" />
+              {{ chip.name }}
+            </div>
+          </mat-basic-chip-option>
+        </mat-chip-listbox>
+      </div>
+      <span
+        *ngIf="!chipsListbox.valid && chipsListbox.touched"
+        class="error-message"
+      >
+        Please select a reaction
+      </span>
+
+      <div class="title-container">
+        <label>Title:</label>
+        <input
+          type="text"
+          id="title"
+          ngModel
+          name="title"
+          placeholder="Enter marios title"
+          class="title-input"
+          required
+          #title="ngModel"
+        />
+      </div>
+      <span *ngIf="!title.valid && title.touched" class="error-message">
+        Please leave a title
+      </span>
+
+      <div class="comment-container">
+        <label>Comment:</label>
+        <textarea
+          type="text"
+          id="comment"
+          [(ngModel)]="commentText"
+          name="comment"
+          class="comment-textarea"
+          maxlength="255"
+          required
+          #comment="ngModel"
+        ></textarea>
+        <span class="counter">{{ commentText.length }}/255</span>
+      </div>
+      <span *ngIf="!comment.valid && comment.touched" class="error-message">
+        Please leave a comment
+      </span>
+
+      <div class="send-button-container">
+        <button class="send-button" type="submit" [disabled]="!f.valid">
+          SEND
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

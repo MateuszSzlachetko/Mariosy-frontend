@@ -1,1 +1,62 @@
 /* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@600%3B700%3B800&display=swap");
+@import "~@ng-select/ng-select/themes/default.theme.css";
+
+$content-width: 63.75rem;
+$main-border-radius: 0.31rem;
+
+@mixin font-style($weight, $size, $spacing) {
+  font-family: "Open Sans", sans-serif;
+  font-weight: $weight;
+  font-size: $size;
+  letter-spacing: $spacing;
+}
+
+@mixin flex-display($justify, $align, $direction) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  flex-direction: $direction;
+}
+
+.back-button {
+  @include font-style(700, 1.06rem, 0.06rem);
+  @include flex-display(space-between, center, row);
+  width: 7.5rem;
+  height: 2.81rem;
+  padding-left: 0.63rem;
+  padding-right: 0.94rem;
+  background-color: #ffdf24;
+  border: solid 0.19rem #ffffff;
+  border-radius: 0.31rem;
+  cursor: pointer;
+
+  transition: transform 0.1s ease-in-out, box-shadow 0.4s ease-out;
+  filter: blur(0);
+
+  &:hover {
+    box-shadow: 0rem 0.94rem 1.56rem -0.31rem rgba(#9a272d, 90%);
+    transform: perspective(0.06rem) scale(1.0588);
+  }
+
+  &:active {
+    box-shadow: 0rem 0.25rem 0.5rem rgba(#9a272d, 50%);
+    transform: perspective(0.06rem) scale(0.9412);
+  }
+}
+
+html {
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}

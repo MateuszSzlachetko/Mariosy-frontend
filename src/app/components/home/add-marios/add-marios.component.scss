@@ -1,0 +1,241 @@
+@import "src/styles.scss";
+$main-gray-color: #bababa;
+$yellow-border: 0.25rem solid #fccf00;
+.container {
+  @include flex-display(center, center, column);
+  width: 100vw;
+  margin-bottom: 6.25rem;
+}
+
+.form-container {
+  @include flex-display(center, flex-start, row);
+  @include font-style(700, 1.563rem, 0.25rem);
+  width: 100%;
+  max-width: $content-width;
+  background-color: white;
+  margin-top: 5rem;
+  border-radius: $main-border-radius;
+}
+
+.back-button-container {
+  @include flex-display(flex-start, center, row);
+  width: 100%;
+  max-width: $content-width;
+  margin-top: 1.25rem;
+}
+
+.ng-select.user-select {
+  width: $content-width;
+}
+
+.ng-select.user-select ::ng-deep .ng-select-container {
+  @include flex-display(center, center, row);
+  @include font-style(600, 1.56rem, 0.06rem);
+  border: none;
+  border-radius: 0rem;
+  border-top-left-radius: $main-border-radius;
+  border-top-right-radius: $main-border-radius;
+  border-bottom: $yellow-border;
+  min-height: 3.75rem;
+  padding: 0rem !important;
+}
+
+.ng-select.user-select ::ng-deep .ng-value-container {
+  @include flex-display(flex-start, center, row);
+  padding: 0.31rem !important;
+}
+
+.ng-select.user-select ::ng-deep .ng-placeholder {
+  text-align: center;
+  color: #8d8080;
+  background-image: url("/assets/icons/person-icon-yellow.svg");
+  background-repeat: no-repeat;
+  background-position: left 0.31rem bottom 0.31rem;
+  text-indent: 3.13rem;
+  padding: 0rem !important;
+  margin-top: 0.63rem;
+}
+
+.category-container {
+  @include flex-display(center, flex-start, column);
+  @include font-style(700, 1.5rem, 0.06rem);
+  padding-left: 0.94rem;
+  width: $content-width -1.25rem;
+  margin-top: 1.25rem;
+}
+
+.chips-container {
+  @include flex-display(center, space-between, row);
+  margin-top: 1.25rem;
+  margin-bottom: 0.63rem;
+}
+
+.mat-mdc-chip {
+  @include flex-display(center, center, row);
+}
+
+.custom-chip {
+  @include font-style(700, 1rem, 0.063rem);
+
+  height: 1.56rem;
+  padding: 0.31rem 1.25rem;
+  margin-left: 0.31rem;
+  margin-right: 0.31rem;
+  border-radius: $main-border-radius;
+  border: 0.13rem solid $main-gray-color;
+  background-color: white;
+}
+
+.chip-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: space-between;
+
+  & > img {
+    margin-right: 0.63rem;
+  }
+}
+
+.mat-mdc-chip-selected {
+  background-color: #e0e0e0;
+}
+
+.title-container {
+  border-top: $yellow-border;
+
+  @include flex-display(center, flex-start, column);
+  @include font-style(700, 1.5rem, 0.06rem);
+  padding-left: 0.94rem;
+  padding-top: 1.25rem;
+  margin-top: 1.25rem;
+
+  & > div {
+    margin-bottom: 0.63rem;
+  }
+}
+
+.title-input {
+  border: 0.125rem solid $main-gray-color;
+  border-radius: $main-border-radius;
+  @include font-style(700, 1.13rem, 0.06rem);
+  height: 2.5rem;
+  width: $content-width - 4.38rem;
+  padding-left: 0.63rem;
+  margin-top: 0.63rem;
+
+  &::placeholder {
+    @include font-style(700, 1rem, 0.06rem);
+    color: $main-gray-color;
+    line-height: 5.63rem;
+  }
+}
+
+.comment-container {
+  @include flex-display(center, flex-start, column);
+  @include font-style(700, 1.5rem, 0.06rem);
+  border-top: $yellow-border;
+  padding-left: 0.94rem;
+  padding-top: 1.25rem;
+  padding-bottom: 0.63rem;
+  width: $content-width -1.25rem;
+  margin-top: 1.25rem;
+  position: relative;
+
+  & > div {
+    margin-bottom: 0.63rem;
+  }
+}
+
+.comment-textarea {
+  border: 0.13rem solid $main-gray-color;
+  border-radius: 0.31rem;
+  @include font-style(700, 1.25rem, 0.06rem);
+  height: 11.25rem;
+  width: $content-width - 4.38rem;
+  margin-top: 0.63rem;
+  padding-left: 0.63rem;
+  resize: none;
+}
+
+.counter {
+  @include font-style(700, 1.13rem, 0.063rem);
+  color: $main-gray-color;
+  position: absolute;
+  bottom: 1.25rem;
+  right: 2.81rem;
+}
+
+.send-button-container {
+  @include flex-display(flex-end, center, row);
+  padding-right: 2.5rem;
+  margin-bottom: 0.94rem;
+}
+
+.send-button {
+  @include font-style(700, 1.06rem, 0.06rem);
+  @include flex-display(center, center, row);
+  width: 7.5rem;
+  height: 2.81rem;
+
+  background-color: #ffdf24;
+  border: solid 0.19rem #000000;
+  border-radius: $main-border-radius;
+  cursor: pointer;
+
+  transition: transform 0.1s ease-in-out, box-shadow 0.4s ease-out;
+  filter: blur(0);
+
+  &:hover {
+    box-shadow: 0rem 0.94rem 1.56rem -0.31rem rgba(#d7d7d7, 90%);
+    transform: perspective(0.06rem) scale(1.0588);
+  }
+
+  &:active {
+    box-shadow: 0rem 0.25rem 0.5rem rgba(#d7d7d7, 50%);
+    transform: perspective(0.06rem) scale(0.9412);
+  }
+
+  &:disabled {
+    background-color: $main-gray-color;
+    &:hover {
+      box-shadow: 0rem 0rem 0rem 0rem rgba(#d7d7d7, 90%);
+      transform: perspective(0.06rem) scale(1);
+    }
+
+    &:active {
+      box-shadow: 0rem 0rem 0rem rgba(#d7d7d7, 50%);
+      transform: perspective(0.06rem) scale(1);
+    }
+  }
+}
+
+input.ng-invalid.ng-touched {
+  border: 0.13rem solid red;
+}
+
+textarea.ng-invalid.ng-touched {
+  border: 0.13rem solid red;
+}
+
+.chips-container.ng-invalid.ng-touched mat-basic-chip-option {
+  border: 0.13rem solid red;
+}
+
+.user-select.ng-invalid.ng-touched {
+  border: 0.13rem solid red;
+  border-bottom-width: 0.19rem;
+  border-top-left-radius: $main-border-radius;
+  border-top-right-radius: $main-border-radius;
+
+  & ::ng-deep .ng-select-container {
+    border: none;
+  }
+}
+
+.error-message {
+  color: red;
+  @include font-style(700, 0.88rem, 0.06rem);
+  margin: 0;
+  padding: 0;
+  padding-left: 0.94rem;
+}

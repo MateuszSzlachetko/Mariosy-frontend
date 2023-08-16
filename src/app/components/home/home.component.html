@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="marios-info-container">
+    <a [routerLink]="['/user', userId, 'received']">
+      <app-marios-info
+        [message]="received"
+        [count]="receivedCount"
+      ></app-marios-info>
+    </a>
+    <a [routerLink]="['/user', userId, 'sent']">
+      <app-marios-info [message]="sent" [count]="givenCount"></app-marios-info>
+    </a>
+  </div>
+
+  <div class="add-marios-container">
+    <button class="add-marios-button" type="button" (click)="navigateToAdd()">
+      ADD MARIOS
+      <img src="assets/icons/right-arrow.svg" alt="right arrow icon" />
+    </button>
+  </div>
+
+  <div class="message-container">
+    <p>LAST MARIOS:</p>
+  </div>
+
+  <app-marios-grid [mariosArray]="lastMarios"></app-marios-grid>
+</div>

@@ -1,0 +1,67 @@
+@import "src/styles.scss";
+
+$card-width: 31.25rem;
+$card-height: 15.63rem;
+$mario-logo-width: 12.5rem;
+$mario-logo-height: 12.5rem;
+
+@mixin inner-container {
+  width: calc($card-width / 2);
+  display: flex;
+  justify-content: center;
+}
+
+@mixin font-style($weight, $size, $spacing) {
+  font-family: "Open Sans", sans-serif;
+  font-weight: $weight;
+  font-size: $size;
+  letter-spacing: $spacing;
+}
+
+.card {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  width: $card-width;
+  height: $card-height;
+  border-radius: $main-border-radius;
+  background-color: #ffffff;
+  box-shadow: 0.38rem 0.5rem 0.63rem rgba($color: #000000, $alpha: 0.45);
+}
+
+.message-container {
+  @include inner-container;
+  align-items: center;
+}
+
+.message-container > p {
+  @include font-style(800, 2.19rem, 0.31rem);
+  padding-left: 2.5rem;
+}
+
+.counter-container {
+  @include inner-container;
+  align-self: center;
+  position: relative;
+}
+
+.counter-container > img {
+  opacity: 0.5;
+  width: $mario-logo-width;
+  height: $mario-logo-height;
+}
+
+.counter-container > p {
+  margin: 0;
+  padding: 0;
+  left: 0;
+  position: absolute;
+  text-align: center;
+  top: calc(($mario-logo-height / 8));
+  width: 100%;
+
+  @include font-style(800, 6.88rem, 1.25rem);
+  padding-left: 0.63rem;
+  -webkit-text-stroke: 0.38rem black;
+  -webkit-text-fill-color: #fccf00;
+}

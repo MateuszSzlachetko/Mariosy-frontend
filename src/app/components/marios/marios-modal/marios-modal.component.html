@@ -1,0 +1,24 @@
+<div mat-dialog-content>
+  <div class="marios-container">
+    <div class="top-row">
+      <div class="author-container">
+        <img src="assets/icons/person-icon.svg" alt="person icon" />
+        <span class="author">From: {{ data.marios.authorUsername }}</span>
+      </div>
+
+      <div class="reaction-container">
+        <img [src]="data.iconSrc" alt="reaction icon" />
+        <span class="reaction">{{ data.marios.characterName }}</span>
+      </div>
+    </div>
+
+    <div class="title-container">{{ data.marios.title }}</div>
+
+    <div class="comment-container">
+      <span>{{ data.marios.comment }}</span>
+    </div>
+    <button class="close" mat-dialog-close>
+      <img src="assets/icons/close.svg" alt="close icon" />
+    </button>
+  </div>
+</div>

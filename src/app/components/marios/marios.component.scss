@@ -1,0 +1,65 @@
+@import "src/styles.scss";
+
+.marios-container {
+  display: flex;
+  flex-direction: column;
+  width: 19.63rem;
+  height: 10rem;
+  background-color: #ffffff;
+  padding-left: 0.38rem;
+  padding-right: 0.38rem;
+  border-radius: $main-border-radius;
+  cursor: pointer;
+  position: relative;
+
+  &:hover {
+    .read-more {
+      visibility: visible;
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+  }
+}
+
+.inner-column {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.inner-column > img {
+  margin-right: 0.5rem;
+}
+
+.marios-container > div > span {
+  @include font-style(700, 1rem, 0rem);
+  margin: 0;
+}
+
+.author {
+  color: #ea808e;
+}
+
+.comment {
+  color: #a1a1a1;
+  word-break: break-word;
+}
+
+.see-more {
+  color: #000000;
+}
+
+.read-more {
+  @include font-style(800, 1.88rem, 0.06rem);
+  @include flex-display(center, center, column);
+  color: white;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin-left: -0.38rem;
+  border-radius: $main-border-radius;
+  visibility: hidden;
+  transition: background-color 0.5s ease-in-out;
+}
