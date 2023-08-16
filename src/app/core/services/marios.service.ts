@@ -23,6 +23,6 @@ export class MariosService {
   }
 
   getReactionIconSrc(name: string) {
-    return this.reactions.getSrc(name);
+    return this.reactions.getIconSrc(name);
   }
 }

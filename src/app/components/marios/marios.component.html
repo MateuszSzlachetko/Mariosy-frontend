@@ -16,11 +16,14 @@
   <div class="inner-column">
     <span class="comment">
       {{
-        marios.comment.length > maxCommentLength
-          ? (marios.comment | slice : 0 : maxCommentLength) + "..."
+        marios.comment.length > maxCommentLengthUntilSeeMore
+          ? (marios.comment | slice : 0 : maxCommentLengthUntilSeeMore) + "..."
           : marios.comment
       }}
-      <span class="see-more" *ngIf="marios.comment.length > maxCommentLength">
+      <span
+        class="see-more"
+        *ngIf="marios.comment.length > maxCommentLengthUntilSeeMore"
+      >
         See more
       </span>
     </span>

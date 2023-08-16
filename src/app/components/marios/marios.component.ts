@@ -11,7 +11,7 @@ import { MariosModal } from './marios-modal/marios-modal.component';
 })
 export class MariosComponent implements OnInit {
   @Input() marios!: Marios;
-  maxCommentLength: number = 25;
+  maxCommentLengthUntilSeeMore: number = 50;
   iconSrc: string = '';
 
   constructor(private marioService: MariosService, public dialog: MatDialog) {}

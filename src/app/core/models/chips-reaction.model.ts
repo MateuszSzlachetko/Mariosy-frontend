@@ -32,7 +32,7 @@ export class ChipsReactions {
     },
   ];
 
-  getSrc(name: string) {
+  getIconSrc(name: string) {
     const reactionSrc = this.chips.find((reaction) => reaction.name === name);
 
     return reactionSrc?.iconSrc ?? '';
